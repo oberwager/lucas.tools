@@ -1,0 +1,8 @@
+@font-face{font-family:MinimalHard;src:url(/../fonts/minimalhard.ttf);}
+@font-face{font-family:NixieOne;src:url(/../fonts/NixieOne.ttf);}
+body{background:url('/../img/background.jpg');}
+main{height:100vh;}
+.title{color:#ffffff;font-family:MinimalHard;font-size:7em;}
+.content{width:100vw;}
+.description{font-size:1.2em;}
+.more{font-family:NixieOne;font-size:2em;}
