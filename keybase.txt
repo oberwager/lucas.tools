@@ -1,0 +1,88 @@
+==================================================================
+https://keybase.io/watt3r
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://watterikson.com
+  * I am watt3r (https://keybase.io/watt3r) on keybase.
+  * I have a public key with fingerprint 4A4F 0E57 A7E7 9FB4 281D  06DA DABA E81C C24A 18F2
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01209c78e0b9f1a250efc4b517883b86e80990eef7b47b04751a07f60923e256e63f0a",
+      "fingerprint": "4a4f0e57a7e79fb4281d06dadabae81cc24a18f2",
+      "host": "keybase.io",
+      "key_id": "dabae81cc24a18f2",
+      "kid": "0101050228a9647e54f688e3e2ad11a78d16f35447f246d29702119e1781ff154c3f0a",
+      "uid": "e23013da8ec3b4498c9a40089439a519",
+      "username": "watt3r"
+    },
+    "merkle_root": {
+      "ctime": 1537245758,
+      "hash_meta": "aa6986a97d013a5c690b5b06ddb55950233faa1f2eb0c7ddb64ab8ce43c3994a",
+      "seqno": 3623926
+    },
+    "revoke": {
+      "sig_ids": [
+        "caadfbee93455a25a3d4421c0ae4e55f1f57e9d804afe9c9986cf9d29ddcf2330f"
+      ]
+    },
+    "service": {
+      "hostname": "watterikson.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1537245821,
+  "expire_in": 157680000,
+  "prev": "58634421de8910af05fd65000b7b9171d6b6358c7e411da9ea172188a6c561ec",
+  "seqno": 32,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.77
+Comment: https://keybase.io/crypto
+
+yMQDAnicbZN7bBRFHMevtAjUSHmKUIS6mCChws7uzO5OeUgKUihgi9JILe0xuzvT
+nte7Pfa2dy1wKG8ophIgmAAKKQohUiiCVl4KlaYCJrwaDQVsiAaKVCgPiw1CnW0g
+wcTdPzY7+/19f5/fd3ZOvBDvSYxrPNQ8uDbzpbtxp2ujJZ68bUtiCwTdMsuEtAWC
+n3Y+aLFJw47X7zOFNEEEkogNVaOijhkgEhIpM6COgKppsq4pVBMxFillqg5VXYQq
+AkRUmSJiSaYSUqgiM5EIqQLzBQupHbJ9QYfbQgKZSJFKVKpipkNJA6aomMQkOqEa
+MAwJEqAxiRcWWWG3gsPpJExH+Sy+xl+8nXj/o3/KzW8kSpJGsAJViiBTNI1yJmIC
+QFTNBAqTEYQqk6BiSlgVJQAw5XMBxgCCxhPukk47KskikE2iUUPWIcSagQkURQ1D
+GRMEsCsMUztIApSro8RxZFuIpQoBavuLqde2LMeN1nB8rgAgWZUgUpHGxyPhIm+A
+OoTXEaJgTSFYNXkzggwFizrSeS6mjhDm08gyIwQwieqiofJVBRJdMyiUDRlj6OKG
+6bygJaTJiiRjSeEENo1Yfuo2D/sKeWhhIS1PMAgxmU4pliFCfFOJbEIoAUMkFFKE
+GGBIpdjUREgYxQbmVAbDPCXTNBinEJmQH3Ob2RGf0Wnu7tIz01Pb5w9bwVGGFeBQ
+IdtyLMMq5h+LHCcUTnOjccpCnWqqe5/4eHVf0OS/Ca+IUDvss4I8Kq78b2qaBFIF
+Whry2dTrcxVIVTSRX24fGuGWSFNkdxyTahiIhImImQriCl3VMVCBqeiKjDRDpRAA
+k2BKgCoBTSOKgRRAjWdilDgnKeSePLwgcUpsKsRqj89J8MQlep7r2sU9P57EHr2e
+nqq/uyY96puTssPz5ezh5zKqW3uWF3u3P9r/y76GxsLdb/UrXWhsLGefZNU3DPtt
+WZfizMj0nOCbDze3LUnNUmdW/ng0FHft44Lrq9oOz3PKl42+lNEx/v3z69/O1jOL
+NtwrTdn0YXLmqheTevc7ua5u4tnG4x0jm3pa7XNaXr0aqy6bWtFe1JSxeulEO9+7
+E3wgVU7JoC3R5799peRqc1Wf+sqPhljmpxf1+iWx5C+iR/+aNqJ8ddzAmcN/fj3V
+XxmYMOjSjblrFz7u2AbrHpTvZXnps+GYbDp/xiLPD38MmPyorvWfa1+h/Z8n7FPz
+aby99VxWzeEDiy7cPFvasnLXociZnKaUd078ZB07WefpGLp96J2K+23y+UjugxWT
+1x8c9Gv7vSO/DxyxpceUaEU0J/f6qHGJRwLZV28cOLNvwMrU+AWzznkvXBpNP3s4
+/lq/5GBvNOSbZmXahJ0BdKWgpqK70LF+ea+2Ve/NuVJwM7t16Hc1VTvygsMiVkL6
+/IMl9e33cxKaunfbcKLsz6U77zzWk0JHT63pP+Ph1lOzpttr2trnVl8Ym/varFub
+k76vpuPWsZvpm/r0f/CyeGv11NKLexqGVO1ZPDi+pSbYLT/3jWPRy1sGTNo1aHFH
++uX4xneT9yatqN07OOPrgowedxfVjPXfbt6fvHvt8DPdU25PGDn/8bSG0VNO993Y
+BbdWKdFeZZW1LGuMJ4Ymtf8L1OoFZg==
+=e3j3
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/watt3r
+
+==================================================================
