@@ -1,42 +1,179 @@
 <!DOCTYPE html>
-<html>
-    <head>
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		
-		<title>All About Watt Erikson</title>
-		<meta name="description" content="Watt Erikson, the security enthusiast | Game Developer | Freelancer. Main Page">
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113862764-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Watt Erikson</title>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Quicksand|Chakra+Petch" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $.fn.moveIt = function(){
+          var $window = $(window);
+          var instances = [];
 
-  gtag('config', 'UA-113862764-2');
-</script>
+          $(this).each(function(){
+            instances.push(new moveItItem($(this)));
+          });
 
-wa    </head>
-    <body>
-		<main class="container valign-wrapper">
-			<div class="row center white-text content">
-				<span class="title">Watt  <wbr>Erikson</span>
-				<p class="description">Security Enthusiast | Game Developer | Freelancer <br>View my portfolio <a href="/Portfolio">Here</a>.<br> My new main project is <a href=https://twitchturtle.com>TwitchTurtle</a> a streamlabs integration service to donate with TRTL.<br><br>My arsenal of languages: HTML, CSS, JavaScript, PHP, MySQL, NODEjs, Python, Bash, and some C#.<br><br><br><br><a href="/links" class="more"><b>Discover more</b></a>
-				
-					<style type="text/css">
-						@font-face{font-family:MinimalHard;src:url(/../fonts/minimalhard.ttf);}
-@font-face{font-family:NixieOne;src:url(/../fonts/NixieOne.ttf);}
-body{background:url('/../img/background.jpg');}
-main{height:100vh;}
-.title{color:#ffffff;font-family:MinimalHard;font-size:7em;}
-.content{width:100vw;}
-.description{font-size:1.2em;}
-.more{font-family:NixieOne;font-size:2em;}
-					</style>
-			</div>
-		</main>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" async>
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css" async />
-		<link rel="icon" type="image/png" href="favicon.png" async />
-    </body>
+          window.addEventListener('scroll', function(){
+            var scrollTop = $window.scrollTop();
+            instances.forEach(function(inst){
+              inst.update(scrollTop);
+            });
+          }, {passive: true});
+        }
+
+        var moveItItem = function(el){
+          this.el = $(el);
+          this.speed = parseFloat(this.el.attr('data-scroll-speed'));
+        };
+
+        moveItItem.prototype.update = function(scrollTop){
+          this.el.css('transform', 'translateY(' + -(scrollTop / this.speed) + 'px)');
+        };
+
+        // Initialization
+        $(function(){
+          $('[data-scroll-speed]').moveIt();
+        });
+    </script>
+    <style media="screen">
+      body {
+        background-color: #1A1A1A;
+        color: #fff;
+      }
+      .social {
+        list-style-type: none;
+        display: inline-block;
+        margin-right: 36px;
+      }
+      h1 {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 10em;
+        left: .6em;
+        top: .4em;
+        position: absolute;
+      }
+      a {
+        color: #fff;
+      }
+      a:hover {
+        color: #FF6363
+      }
+      .links {
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 500;
+        vertical-align: inherit;
+        text-transform: uppercase;
+        font-size: 18px;
+        line-height: 28px;
+        transform: rotate(-90deg) translate(0px, 200px);
+        color: #fff;
+        float: right;
+        top: 25%;
+        padding: 0px;
+        margin: 0px;
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        z-index: 999;
+      }
+      .launch {
+        min-height: 100vh;
+
+      }
+      .section {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 3em;
+
+        position: absolute;
+        min-height: 25vh;
+      }
+      .section1 {
+        right: 3em;
+      }
+      .section2 {
+        left: 0.75em;
+        bottom: -150vh;
+      }
+      .section3 {
+        right: 0.4em;
+        bottom: -195vh;
+      }
+      .section4 {
+        right: 5em;
+        bottom: -225vh;
+      }
+
+      .highlight {
+        color: #FF6363 !important;
+      }
+      .scroll {
+        height: 140vh;
+      }
+      .backtext {
+        font-family: 'Chakra Petch', sans-serif;
+        position: absolute;
+        right: 0.42em;
+        top: -35vh;
+        color: #141414;
+        text-transform: uppercase;
+        z-index: -1;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        font-size: 350px;
+        line-height: 350px;
+      }
+      .skills {
+        list-style-type: none;
+        margin-right: 36px;
+      }
+      p {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 0.35em;
+        left: .9em;
+        max-width: 85%;
+        left: .5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="links">
+      <ul class="social">
+        <li class="social"><a href="https://twitter.com/@WatterB">Twitter</a></li>
+        <li class="social"><a href="mailto:turtle@turtle-coin.com">E-Mail</a></li>
+        <li class="social"><a href="https://github.com/watt3r">Github</a></li>
+        <li class="social"><a href="https://steamcommunity.com/id/watt3r">Steam</a></li>
+      </ul>
+    </div>
+    <h3 class="backtext" data-scroll-speed="0">Co_<br>De</h3>
+    <div class="launch">
+      <h1 data-scroll-speed="3">Watt<br>Erikson.</h1>
+
+
+    </div>
+    <div class="scroll">
+      <div class="section section1"  data-scroll-speed="1">
+        <h2><span class="highlight">&gt;</span> Hello_World</h2>
+        <p>Just a wee high school student, trying to make his way through the world.<br> I mainly code Python3, but I do all sorts of languages.</p>
+      </div>
+      <div class="section section2"  data-scroll-speed="0.5">
+        <h2>Works<span class="highlight">()</span></h2>
+        <p>My portfolio is mainly my <a href="#">Github</a> profile. I have been working hard on my biggest project, <a href="https://trtl.tv">trtl.tv</a></p>
+      </div>
+      <div class="section section3"  data-scroll-speed="0.95">
+        <h2><span class="highlight">&lt;</span>Knacks<span class="highlight">&gt;</span></h2>
+        <ul class="skills">
+          <li class="skills">Python3</li>
+          <li class="skills">JavaScript</li>
+          <li class="skills">Discord Bots</li>
+          <li class="skills">CryptoCurrency</li>
+          <li class="skills">Back_end</li>
+          <li class="skills">Server_Mgmt</li>
+        </ul>
+      </div>
+      <div class="section section4"  data-scroll-speed="1.4">
+        <h2>My<span class="highlight">_</span>Interests</h2>
+        <p>I have lots of passions that I pursure. Right now, I am focusing on honing my skills. <br> I have been working on cryptocurrencies like <a href="https://turtlecoin.lol">TurtleCoin</a>, and its code forks. <br> I also enjoy netsec and security, but I need a lot more practice in that sector. </p>
+      </div>
+    </div>
+  </body>
 </html>
