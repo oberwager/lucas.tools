@@ -43,13 +43,14 @@
 
         // Initialization
         $(function(){
-          $('[data-scroll-speed]').moveIt();
+          if ($('html').width() > 768) {$('[data-scroll-speed]').moveIt();}
         });
     </script>
     <style media="screen">
       body {
         background-color: #1A1A1A;
         color: #fff;
+        min-width: 100%;
       }
       .social {
         list-style-type: none;
@@ -59,8 +60,8 @@
       h1 {
         font-family: 'Quicksand', sans-serif;
         font-size: 10em;
-        left: .6em;
-        top: .4em;
+        left: 0em;
+        top: 0em;
         position: absolute;
       }
       a {
@@ -72,45 +73,25 @@
       .links {
         font-family: 'Quicksand', sans-serif;
         font-weight: 500;
-        vertical-align: inherit;
         text-transform: uppercase;
-        font-size: 18px;
-        line-height: 28px;
-        transform: rotate(-90deg) translate(0px, 200px);
+        font-size: 1em;
+        line-height: 2em;
         color: #fff;
-        float: right;
-        top: 25%;
         padding: 0px;
-        margin: 0px;
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
+        margin: 0;
         z-index: 999;
+        text-align: center;
+        margin-top: 1em;
       }
+
       .launch {
         min-height: 100vh;
       }
       .section {
         font-family: 'Quicksand', sans-serif;
         font-size: 3em;
+      }
 
-        position: absolute;
-        min-height: 25vh;
-      }
-      .section1 {
-        right: 3em;
-      }
-      .section2 {
-        left: 0.75em;
-        bottom: -150vh;
-      }
-      .section3 {
-        right: 0.4em;
-        bottom: -195vh;
-      }
-      .section4 {
-        right: 5em;
-        bottom: -225vh;
-      }
 
       .highlight {
         color: #FF6363 !important;
@@ -141,6 +122,41 @@
         left: .9em;
         max-width: 85%;
         left: .5em;
+      }
+      @media only screen and (min-width: 768px) {
+        h1 {
+          font-size: 10em;
+          left: .6em;
+          top: .4em;
+        }
+        .links {
+          transform: rotate(-90deg) translate(0px, 200px);
+          vertical-align: inherit;
+          position: -webkit-sticky; /* Safari */
+          position: sticky;
+          float: right;
+          top: 25%;
+          margin: 0px;
+        }
+        .section {
+          position: absolute;
+          min-height: 25vh;
+        }
+        .section1 {
+          right: 3em;
+        }
+        .section2 {
+          left: 0.75em;
+          bottom: -150vh;
+        }
+        .section3 {
+          right: 0.4em;
+          bottom: -195vh;
+        }
+        .section4 {
+          right: 5em;
+          bottom: -225vh;
+        }
       }
     </style>
   </head>
