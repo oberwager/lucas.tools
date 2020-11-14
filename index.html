@@ -5,219 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Oberwager's Tool Suite</title>
     <meta content="width=device-width,initial-scale=1" name=viewport>
-    <meta content=#c4c4c4 name=msapplication-TileColor>
+    <meta content=#f7f7f7  name=msapplication-TileColor>
     <meta content=/favicon/browserconfig.xml name=msapplication-config>
-    <meta content=#ffffff name=theme-color>
+    <meta content=#f7f7f7 name=theme-color>
     <meta content="Lucas Oberwager's Tool Suite" property=og:title>
     <meta content=website property=og:type>
     <meta content=https://lucas.tools" property=og:url>
     <meta content=https://lucas.tools/logo.png property=og:image>
-    <meta content="Lucas, the man, the myth, the legend. Who is Watt Erikson?" property=og:description>
-    <meta content="Lucas, the man, the myth, the legend. Who is Watt Erikson?" name=description>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Quicksand|Chakra+Petch" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript">
-      $.fn.moveIt = function(){
-          var $window = $(window);
-          var instances = [];
-
-          $(this).each(function(){
-            instances.push(new moveItItem($(this)));
-          });
-
-          window.addEventListener('scroll', function(){
-            var scrollTop = $window.scrollTop();
-            instances.forEach(function(inst){
-              inst.update(scrollTop);
-            });
-          }, {passive: true});
-        }
-
-        var moveItItem = function(el){
-          this.el = $(el);
-          this.speed = parseFloat(this.el.attr('data-scroll-speed'));
-        };
-
-        moveItItem.prototype.update = function(scrollTop){
-          this.el.css('transform', 'translateY(' + -(scrollTop / this.speed) + 'px)');
-        };
-
-        // Initialization
-        $(function(){
-          if ($('html').width() > 768) {$('[data-scroll-speed]').moveIt();}
-        });
-    </script>
-    <style media="screen">
-      body {
-        background-color: #1A1A1A;
-        color: #fff;
-        min-width: 100%;
-      }
-      .social {
-        list-style-type: none;
-        display: inline-block;
-        margin-right: 36px;
-      }
-      h1 {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 10em;
-        left: 0em;
-        top: 0em;
-        position: absolute;
-      }
-      a {
-        color: #fff;
-      }
-      a:hover {
-        color: #39FF14
-      }
-      .links {
-        font-family: 'Quicksand', sans-serif;
-        font-weight: 500;
-        text-transform: uppercase;
-        font-size: 0.8em;
-        line-height: 2em;
-        color: #fff;
-        padding: 0px;
-        margin: 0;
-        z-index: 999;
-        text-align: center;
-        margin-top: 1em;
-      }
-
-      .launch {
-        min-height: 100vh;
-      }
-      .section {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 3em;
-      }
-
-
-      .highlight {
-        color: #39FF14 !important;
-      }
-      .scroll {
-        height: 140vh;
-      }
-      .backtext {
-        font-family: 'Chakra Petch', sans-serif;
-        position: absolute;
-        right: 0.42em;
-        top: -35vh;
-        color: #1A1A1A;
-        text-transform: uppercase;
-        z-index: -1;
-        margin-bottom: 0px;
-        margin-left: 0px;
-        font-size: 40vh;
-        line-height: 30vh;
-      }
-      .skills {
-        list-style-type: none;
-        margin-right: 36px;
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 55%;
-        left: .9em;
-      }
-      p {
-        font-family: 'IBM Plex Mono', monospace;
-        font-size: 0.35em;
-        left: .9em;
-        max-width: 85%;
-        left: .5em;
-      }
-      .hide {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 1.2em;
-        color: #39FF14 !important;
-      }
-      @media only screen and (min-width: 768px) {
-        h1 {
-          font-size: 10em;
-          left: .6em;
-          top: .4em;
-        }
-        .links {
-          font-size: 1em;
-          transform: rotate(-90deg) translate(0px, 200px);
-          vertical-align: inherit;
-          position: -webkit-sticky; /* Safari */
-          position: sticky;
-          float: right;
-          top: 25%;
-          margin: 0px;
-        }
-        .section {
-          position: absolute;
-          min-height: 5vh;
-        }
-        .section1 {
-          right: 3em;
-          bottom: -10vh;
-        }
-        .section2 {
-          left: 0.75em;
-          bottom: -90vh;
-          max-width: 50%;
-        }
-        .section3 {
-          right: 12em;
-          bottom: -120vh;
-        }
-        .section4 {
-          right: 5vw;
-          bottom: -140vh;
-        }
-        .backtext {
-          color: #141414;
-        }
-      }
-    </style>
+    <meta content="Lucas Oberwager, Developer and Co-Founder of Ecobux.org" property=og:description>
+    <meta content="Lucas Oberwager, Developer and Co-Founder of Ecobux.org" name=description>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Raleway&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="links">
-      <ul class="social">
-        <li class="social"><a href="https://facebook.com/Lucas.Oberwager">Facebook</a></li>
-        <li class="social"><a href="https://twitter.com/@SudoTurtle">Twitter</a></li>
-        <li class="social"><a href="mailto:lucas@ecobux.org">E-Mail</a></li>
-        <li class="social"><a href="https://github.com/watt3r">Github</a></li>
-        <li class="social"><a href="https://keybase.io/watt3r">Keybase</a></li>
-      </ul>
-    </div>
-    <h3 class="backtext" data-scroll-speed="0">Co_<br>De</h3>
-    <div class="launch">
-      <h1 data-scroll-speed="3">Lucas<br>Ober<wbr>wager.</h1>
+<style>
+body {background-color:#f7f7f7}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+    max-height: 100vh;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+}
 
+ul.social {
+ padding: 0;
+}
+li.social {
+    position: relative;
+    display: inline-block;
+    padding: 5vw;
+    font-size: 64px;
+}
+.hide {
+  display: none;
+}
+@media only screen and (min-width: 600px) {
+  li.social {
+    padding: 1vw;
+  }
+  .hide {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9em;
+    display: block;
+    width: fit-content;
+  }
+}
+h1 {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+
+}
+
+a:hover {
+  color: #000;
+}
+
+a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out 0s;
+}
+a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+ion-icon {
+  pointer-events: none;
+}
+</style>
+    <div class="content">
+      <section class="container">
+        <h1>Lucas Oberwager.</h1>
+        <h3>Developer, Co-Founder of <a href="https://ecobux.org">EcoBux.org</a>.</h3>
+
+        <div class="links">
+          <ul class="social">
+            <li class="social"><div><a href="https://github.com/watt3r" title="GitHub"><ion-icon name="logo-github"></ion-icon></a></div></li>
+            <li class="social"><a href="https://facebook.com/Lucas.Oberwager" title="Facebook"><ion-icon name="logo-facebook"></ion-icon></a></li>
+            <li class="social"><a href="https://twitter.com/@SudoTurtle" title="Twitter"><ion-icon name="logo-twitter"></ion-icon></a></li>
+            <li class="social"><a href="mailto:lucas@ecobux.org" title="E-Mail"><ion-icon name="mail-outline"></ion-icon></a></li>
+            <li class="social"><a href="https://keybase.io/watt3r" title="Keybase"><ion-icon name="key-outline"></ion-icon></a></li>
+          </ul>
+        </div>
+      </section>
 
     </div>
-    <div class="scroll">
-      <div class="section section1"  data-scroll-speed="1">
-        <h2><span class="highlight">$</span> HelloWorld<span class="highlight">.sh</span></h2>
-        <p>A high school student, make my way through the world.<br> I mainly code Python, but my recent project, Ecobux, is written in Solidity and uses Mocha for testing.</p>
-      </div>
-      <div class="section section2"  data-scroll-speed="0.35">
-        <h2>Main<span class="highlight">()</span></h2>
-        <p>My portfolio is my <a href="#">Github</a> profile. I have been hard at work on my biggest project, <a href="https://ecobux.org">Ecobux</a>, A cryptocurrency based land conservation charity</p>
-      </div>
-      <div class="section section3"  data-scroll-speed="0.45">
-        <h2><span class="highlight">&lt;</span>Knacks<span class="highlight">&gt;</span></h2>
-        <ul>
-          <li class="skills">Python</li>
-          <li class="skills">Solidity</li>
-          <li class="skills">C</li>
-          <li class="skills">Arduino</li>
-          <li class="skills">JavaScript</li>
-          <li class="skills">Home Servers</li>
-        </ul>
-      </div>
-      <div class="section section4"  data-scroll-speed="0.6">
-        <h2>My<span class="highlight">_<wbr></span>Interests</h2>
-        <p>Currently diving deep into Ethereum's C like language, Solidity, but I have been interested in other cryptocurrencies. I am a contributor on <a href="https://turtlecoin.lol">TurtleCoin</a> and a core developer on several trtl forks.</p>
-      </div>
-    </div>
-    <div>
-      <a class="hide" href="#">shhh</>
-    </div>
+    <footer>
+    <a class="hide" href="https://youtu.be/cISYzA36-ZY">New Card, What do you think</a>
+    </footer>
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
   </body>
 </html>
