@@ -87,10 +87,32 @@ a:hover::before {
 ion-icon {
   pointer-events: none;
 }
+.type {
+  overflow: hidden; 
+  margin: 0 auto; 
+  letter-spacing: .1em; 
+  border-right: .15em solid black; 
+  white-space: nowrap; 
+  animation:
+    typing 1s steps(16, end),
+    blink-cursor.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0% }
+  to { width: 100% }
+}
+
+@keyframes blink-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
 </style>
     <div class="content">
       <section class="container">
-        <h1>Lucas Oberwager.</h1>
+        <div style="width: fit-content; margin: 0 auto;">
+        <h1 class="type">Lucas Oberwager.</h1>
+        </div>
         <h3>Developer, Co-Founder of <a href="https://ecobux.org">EcoBux.org</a>.</h3>
 
         <div class="links">
