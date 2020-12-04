@@ -53,9 +53,6 @@ li.social {
     width: fit-content;
   }
 }
-h1 {
-  font-family: 'Raleway', sans-serif;
-}
 
 a {
   position: relative;
@@ -87,12 +84,19 @@ a:hover::before {
 ion-icon {
   pointer-events: none;
 }
-.type {
+
+h1 {
+  font-family: 'Raleway', sans-serif;
   overflow: hidden; 
   margin: 0 auto; 
   letter-spacing: .1em; 
-  border-right: .15em solid black; 
   white-space: nowrap; 
+  margin-right: .15em;
+}
+
+h1.type {
+  margin: 0 auto; 
+  border-right: .15em solid black; 
   animation:
     typing 1s steps(16, end),
     blink-cursor.75s step-end infinite;
@@ -111,7 +115,7 @@ ion-icon {
     <div class="content">
       <section class="container">
         <div style="width: fit-content; margin: 0 auto;">
-        <h1 class="type">Lucas Oberwager.</h1>
+        <h1 class="type" id="name">Lucas Oberwager.</h1>
         </div>
         <h3>Developer, Co-Founder of <a href="https://ecobux.org">EcoBux.org</a>.</h3>
 
@@ -128,8 +132,14 @@ ion-icon {
 
     </div>
     <footer>
-    <a class="hide" href="https://youtu.be/cISYzA36-ZY">New Card, What do you think</a>
+    <a class="hide" href="https://youtu.be/cISYzA36-ZY?t=84">New Card, What do you think</a>
     </footer>
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+    <script>
+      window.onload = function() {
+        setTimeout(function() { document.getElementById("name").classList.remove("type"); }, 5000);
+      }
+
+    </script>
   </body>
 </html>
