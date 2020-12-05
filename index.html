@@ -85,6 +85,7 @@ a:hover::before {
 ion-icon {
   pointer-events: none;
 }
+
 /* Typewriter effect */
 h1 {
   font-family: 'Raleway', sans-serif;
@@ -112,6 +113,7 @@ h1.type {
   from, to { border-color: transparent }
   50% { border-color: #2b2b2b; }
 }
+
 /* Rotating carousel text effect */
 .carousel {
   font-size: 18px;
@@ -148,9 +150,15 @@ h1.type {
 }
 
 .carousel-text:nth-of-type(3) {
-  animation-name: rotate-last;
+  animation-name: rotate;
   animation-duration: 3s;
   animation-delay: 6.40s;
+}
+
+.carousel-text:nth-of-type(4) {
+  animation-name: rotate-last;
+  animation-duration: 3s;
+  animation-delay: 9.05s;
   animation-fill-mode: forwards;
 }
 
@@ -182,16 +190,16 @@ h1.type {
     transform: translate3d(0, 0, 0);
   }
 }
-
 </style>
     <div class="content">
       <section class="container">
         <div style="width: fit-content; margin: 0 auto;">
-        <h1 class="type" id="name">Lucas Oberwager.</h1>
+          <h1 class="type" id="name">Lucas <span class="upper">Oberwager</span>.</h1>
         </div>
         <div class="carousel">
           <div class="carousel-content">
-            <h3 class="carousel-text">17 Year old Back-End Developer.</h3>
+            <h3 class="carousel-text">Back-End Developer.</h3>
+            <h3 class="carousel-text"><span id="age">17</span> Years old.</h3>
             <h3 class="carousel-text">Proficent in Python, Javascript, and Solidity.</h3>
             <h3 class="carousel-text">Co-Founder of <a href="https://ecobux.org">EcoBux.org</a>.</h3>
           </div>
@@ -213,7 +221,16 @@ h1.type {
     <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
     <script>
       window.onload = function() {
-        setTimeout(function() { document.getElementById("name").classList.remove("type"); }, 6200);
+        setTimeout(function() { document.getElementById("name").classList.remove("type"); }, 9300);
+        var timesRun = 0;
+        var age = document.getElementById("age");
+        var interval = setInterval(function () {
+          timesRun ++;
+          age.innerHTML = ((new Date() - new Date(2003, 10, 9)) / (1000 * 60 * 60 * 24 * 365.25)).toString().substring(0, 12);
+          if(timesRun === 120){
+            clearInterval(interval);
+          }
+        }, 75);
       }
     </script>
   </body>
