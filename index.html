@@ -33,9 +33,10 @@ body {background-color:#f7f7f7}
 .hide {
   display: none;
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 470px) {
   li.social {
-    padding: 1vw;
+    padding-left: 1vw !important;
+    padding-right: 1vw !important;
   }
   .hide {
     font-family: 'Quicksand', sans-serif;
@@ -63,7 +64,7 @@ a::before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #000;
+  background-color: #2b2b2b;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
@@ -72,6 +73,14 @@ a:hover::before {
   visibility: visible;
   transform: scaleX(1);
 }
+
+.carousel-text > a {
+  color: #696969;
+}
+.carousel-text > a::before {
+  background-color: #696969;
+}
+
 ion-icon {
   pointer-events: none;
 }
@@ -193,7 +202,9 @@ ul.social {
 li.social {
     position: relative;
     display: inline-block;
-    padding: 5vw;
+    padding: 0;
+    padding-left: 5vw;
+    padding-right: 5vw;
     font-size: 64px;
 }
 @keyframes fadeIn {
