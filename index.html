@@ -30,16 +30,6 @@ body {background-color:#f7f7f7}
     font-family: 'Quicksand', sans-serif;
 }
 
-ul.social {
- padding: 0;
-     margin-top: 5em;
-}
-li.social {
-    position: relative;
-    display: inline-block;
-    padding: 5vw;
-    font-size: 64px;
-}
 .hide {
   display: none;
 }
@@ -190,6 +180,27 @@ h1.type {
     transform: translate3d(0, 0, 0);
   }
 }
+
+/* Fade icons in */
+ul.social {
+  padding: 0;
+  margin-top: 5em;
+  opacity: 0;
+  animation: fadeIn ease 2s;
+  animation-delay: 10.15s;
+  animation-fill-mode: forwards;
+}
+li.social {
+    position: relative;
+    display: inline-block;
+    padding: 5vw;
+    font-size: 64px;
+}
+@keyframes fadeIn {
+0% {opacity:0;}
+100% {opacity:1;}
+}
+
 </style>
     <div class="content">
       <section class="container">
