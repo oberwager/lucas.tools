@@ -261,13 +261,7 @@ li.social {
         setTimeout(function() { document.getElementById("name").classList.remove("type"); }, 9300);
         var timesRun = 0;
         var age = document.getElementById("age");
-        var interval = setInterval(function () {
-          timesRun ++;
-          age.innerHTML = ((new Date() - new Date(2003, 10, 9)) / (1000 * 60 * 60 * 24 * 365.25)).toString().substring(0, 12);
-          if(timesRun === 120){
-            clearInterval(interval);
-          }
-        }, 75);
+        age.innerHTML = ((new Date() - new Date(2003, 10, 9)) / (1000 * 60 * 60 * 24 * 365.25)).toString().substring(0, 5);
       }
     </script>
   </body>
