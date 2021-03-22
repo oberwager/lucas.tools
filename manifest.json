@@ -3,7 +3,7 @@
     "background_color": "#f7f7f7",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "http://localhost:8000/",
+    "start_url": "https://lucas.tools/",
     "name": "Lucas Oberwager",
     "short_name": "LO.",
     "icons": [
