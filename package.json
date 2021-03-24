@@ -1,0 +1,25 @@
+{
+  "name": "lucas.tools",
+  "version": "1.0.0",
+  "main": "index.html",
+  "repository": "git@github.com:Watt3r/lucas.tools.git",
+  "author": "Watt3r <lucas@ecobux.org>",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.11.0",
+    "husky": "^5.2.0",
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "lint": "eslint test/ migrations/",
+    "prettier": "prettier --write ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test && npm run prettier-check",
+      "pre-commit": "yarn run lint && yarn run prettier"
+    }
+  }
+}
