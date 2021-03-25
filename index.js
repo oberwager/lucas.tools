@@ -48,7 +48,7 @@ scrollEvent = () => {
   }
 
   // Check if work link is in view
-  for (const i = 0; i < elements.length; i++) {
+  for (let i = 0; i < elements.length; i++) {
     const element = elements[i];
     const positionFromTop = elements[i].getBoundingClientRect().top;
 
