@@ -70,10 +70,6 @@ window.onload = function () {
   worksTimeout = setTimeout(function () {
     document.getElementById("workAnchor").scrollIntoView({ behavior: "smooth", block: "start" });
   }, 17700);
-  const age = document.getElementById("age");
-  age.innerHTML = ((new Date() - new Date(2003, 10, 9)) / (1000 * 60 * 60 * 24 * 365.25))
-    .toString()
-    .substring(0, 5);
 
   // Animate works links in
   elements = document.querySelectorAll(".hidden");
