@@ -80,7 +80,7 @@ h1 {
 .sticky {
   position: fixed;
   top: 0;
-  width: calc(100% - 0.15em);
+  width: 100%;
   left: 0;
   align-items: center;
   z-index: 1;
@@ -194,6 +194,7 @@ img {
   font-family: "Raleway", serif;
   transition: transform 0.5s;
   transition-duration: 0.5s;
+  transition: all 2s;
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
   width: 93vw;

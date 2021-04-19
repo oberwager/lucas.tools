@@ -37,7 +37,7 @@ scrollEvent = () => {
   */
 
   // Check if Lucas Oberwager should be stuck to top
-  if (window.pageYOffset >= sticky) {
+  if (window.pageYOffset-30 >= sticky) {
     header.classList.add("sticky");
     header.children[0].classList.remove("type");
     document.getElementsByClassName("works")[0].classList.remove("hideWorks");
