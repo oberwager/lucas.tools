@@ -114,6 +114,7 @@ h1 {
   text-align: center;
   top: 0;
   background-color: #f7f7f7;
+  will-change: transform, opacity;
 }
 
 .carousel-text:nth-of-type(1) {
@@ -125,25 +126,25 @@ h1 {
 .carousel-text:nth-of-type(2) {
   animation-name: rotate;
   animation-duration: 3s;
-  animation-delay: 6.75s;
+  animation-delay: 5.75s;
 }
 
 .carousel-text:nth-of-type(3) {
   animation-name: rotate;
   animation-duration: 3s;
-  animation-delay: 9.4s;
+  animation-delay: 8.4s;
 }
 
 .carousel-text:nth-of-type(4) {
   animation-name: rotate;
   animation-duration: 3s;
-  animation-delay: 12.05s;
+  animation-delay: 11.05s;
 }
 
 .carousel-text:nth-of-type(5) {
   animation-name: rotate-last;
   animation-duration: 3s;
-  animation-delay: 14.7s;
+  animation-delay: 13.7s;
   animation-fill-mode: forwards;
 }
 /* Fade icons in */
