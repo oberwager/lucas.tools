@@ -1,43 +1,10 @@
-/*
-const math = {
-  lerp: (t, e, n) => (1 - n) * t + n * e,
-  absmin: (a, b) => (a > b ? b : a < -b ? -b : a),
-};
-*/
-// let last = 0;
-// let current = 0;
-// let timer = undefined;
 const header = document.getElementById("header");
 let sticky = header.offsetTop;
 let worksTimeout;
 let typeTimeout;
-/*
-smoothTilt = (lastTilt) =>
-  setTimeout(function () {
-    clearTimeout(timer);
-    if (Math.abs(lastTilt) >= 0.1) {
-      document.getElementsByClassName("content")[0].style =
-        "transform: skewY(" + math.lerp(lastTilt, lastTilt / 2, 0.3) + "deg);";
-      timer = smoothTilt(math.lerp(lastTilt, lastTilt / 2, 0.3));
-    } else {
-      curTilt = 0;
-      last = current;
-      document.getElementsByClassName("content")[0].style = "transform: skewY(0deg);";
-    }
-  }, 50);
-*/
 scrollEvent = () => {
-  /*
-  clearTimeout(timer)
-  current = window.scrollY;
-  curTilt = math.absmin((current-last)/document.body.clientWidth*10, 10);
-  document.getElementsByClassName("content")[0].style = "transform: skewY(" + curTilt + "deg);"
-  last = math.lerp(last, current, 0.1);
-  timer = smoothTilt(curTilt)
-  */
-
   // Check if Lucas Oberwager should be stuck to top
-  if (window.pageYOffset-30 >= sticky) {
+  if (window.pageYOffset >= sticky) {
     header.classList.add("sticky");
     header.children[0].classList.remove("type");
     document.getElementsByClassName("works")[0].classList.remove("hideWorks");
@@ -78,6 +45,8 @@ window.onload = function () {
   window.addEventListener("scroll", scrollEvent);
   window.addEventListener("resize", function () {
     windowHeight = window.innerHeight;
-    sticky = header.offsetTop;
+    const container =  document.getElementById("header").parentElement;
+    sticky = container.offsetTop;
+    scrollEvent();
   });
 };

@@ -87,10 +87,10 @@ h1 {
   padding-bottom: 0.5rem;
   background-color: #f7f7f7;
 }
-.sticky + .carousel > .carousel-content > * {
-  padding-top: 12px;
-}
 
+.sticky ~ * {
+  padding-top: 27px;
+}
 /* Rotating carousel text effect */
 .carousel {
   font-size: 1rem;
