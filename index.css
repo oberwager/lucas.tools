@@ -171,6 +171,7 @@ li.social {
   align-items: center;
   height: 70vh;
   width: 70vw;
+  max-width: 1312px;
   margin: auto;
   font-family: "Quicksand";
   font-size: 1.1rem;
@@ -199,6 +200,7 @@ img {
   backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
   width: 93vw;
+  max-width: 1312px;
   margin: -2vh auto;
 }
 .worksItem:nth-of-type(odd) {
@@ -215,25 +217,24 @@ img {
   font-size: 2rem;
   margin-left: auto;
   margin-right: auto;
-  width: 70vw;
+  width: 70%;
 }
 .worksImage img {
-  width: 349px;
-  height: 349px;
-  width: 93vw;
-  height: 93vw;
+  width: 100%;
+  height: 100%;
 }
 .worksLink {
   display: inline-block;
   font-size: 2rem;
   padding: 0;
   margin: 1vh 0;
+  width: 100%;
 }
 .worksLink > li {
   display: inline-block;
 }
 .worksLink > li + li {
-  padding-left: 1vw;
+  padding-left: 1%;
 }
 .worksTech {
   list-style: none;
@@ -246,7 +247,7 @@ img {
   display: inline-block;
 }
 .worksTech > li + li {
-  padding-left: 2vw;
+  padding-left: 2%;
 }
 .hidden {
   opacity: 0;
@@ -255,12 +256,16 @@ img {
   animation: rotate-last 3s;
 }
 
+.subWorks {
+  max-width: 1312px;
+  margin: auto;
+}
 .subWorksHeader {
   font-family: "Raleway", serif;
   font-size: 2rem;
   margin-left: auto;
   margin-right: auto;
-  width: 70vw;
+  width: 70%;
   transition: transform 0.5s;
   transition-duration: 0.5s;
   backface-visibility: hidden;
@@ -303,6 +308,10 @@ footer ::selection {
   color: #2b2b2b;
   background: #f7f7f7;
 }
+.footerContent {
+  max-width: 1312px;
+  margin: auto;
+}
 .logo {
   text-align: center;
   font-size: xxx-large;
@@ -311,8 +320,9 @@ footer ::selection {
   padding-bottom: 4vh;
 }
 .footerLink {
-  padding-left: 15vw;
-  padding-bottom: 3vh;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-bottom: 3%;
 }
 footer a {
   color: #f7f7f7;
@@ -330,8 +340,8 @@ li.footerSocial {
   position: relative;
   display: inline-block;
   padding: 0;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: 2%;
+  padding-right: 2%;
   font-size: x-large;
 }
 .footerSocial > a {
@@ -426,12 +436,9 @@ li.footerSocial {
     width: 50vw;
     display: inline-block;
   }
-  .worksImage img {
-    width: 50vw;
-    height: 50vw;
-  }
   .subWorksItem {
     width: 33vw;
+    max-width: 565px;
     height: 470px;
     display: inline-flex;
     flex-direction: column;
