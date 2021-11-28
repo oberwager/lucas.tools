@@ -1,0 +1,130 @@
+#!/bin/sh
+
+# Lucas Oberwager dotfiles install script
+# contains code from and inspired by
+# https://github.com/twpayne/chezmoi
+
+set -e
+
+LOG_LEVEL=2
+GITHUB_DOWNLOAD=https://github.com/Watt3r/dotfiles.git
+INSTALL_DIR=~/.dotfiles2
+
+tmpdir=$(mktemp -d)
+trap 'rm -rf ${tmpdir}' EXIT
+
+usage() {
+	this="$1"
+	cat <<EOF
+${this}: download Lucas Oberwager's dotfiles
+
+Usage: ${this} [-i installdir] [-d]
+  -i sets the installation directory, default is ${INSTALL_DIR}.
+  -d enables debug logging.
+EOF
+	exit 2
+}
+
+main() {
+  parse_args "$@"
+
+  # Don't install on root
+  if [ "$(whoami)" == "root" ]; then
+    log_crit "Install should not be run as root. Dotfiles should be installed on a specific user on the system"
+    exit 1
+  fi
+
+  # create directory structure
+  if ! mkdir "${INSTALL_DIR}"; then
+    log_crit "Directory ${INSTALL_DIR} exists. Moving"
+    # Create backup, moving older backup if need be
+    mv -n "${INSTALL_DIR}" "${INSTALL_DIR}-backup"
+  fi
+  log_info "Created directory ${INSTALL_DIR}"
+
+  # git download
+  git clone --recurse-submodules ${GITHUB_DOWNLOAD} ${INSTALL_DIR}
+
+  # install
+  (${INSTALL_DIR}/install) || (log_crit "install failed" && exit 1)
+  log_info "Successfully installed."
+}
+
+parse_args() {
+	while getopts "i:dh:" arg; do
+		case "${arg}" in
+		i) INSTALL_DIR="${OPTARG}" ;;
+		d) LOG_LEVEL=3 ;;
+		h | \?) usage "$0" ;;
+		*) return 1 ;;
+		esac
+	done
+	shift $((OPTIND - 1))
+	EXECARGS="$*"
+}
+
+http_download_curl() {
+	local_file=$1
+	source_url=$2
+	header=$3
+	if [ -z "${header}" ]; then
+		code=$(curl -w '%{http_code}' -sL -o "${local_file}" "${source_url}")
+	else
+		code=$(curl -w '%{http_code}' -sL -H "${header}" -o "${local_file}" "${source_url}")
+	fi
+	if [ "${code}" != "200" ]; then
+		log_debug "http_download_curl received HTTP status ${code}"
+		return 1
+	fi
+	return 0
+}
+
+http_download_wget() {
+	local_file=$1
+	source_url=$2
+	header=$3
+	if [ -z "${header}" ]; then
+		wget -q -O "${local_file}" "${source_url}" || return 1
+	else
+		wget -q --header "${header}" -O "${local_file}" "${source_url}" || return 1
+	fi
+}
+
+http_download() {
+	log_debug "http_download $2"
+	if is_command curl; then
+		http_download_curl "$@" || return 1
+		return
+	elif is_command wget; then
+		http_download_wget "$@" || return 1
+		return
+	fi
+	log_crit "http_download unable to find wget or curl"
+	return 1
+}
+
+is_command() {
+	command -v "$1" >/dev/null
+}
+
+log_debug() {
+	[ 3 -le "${LOG_LEVEL}" ] || return 0
+	echo debug "$@" 1>&2
+}
+
+log_info() {
+	[ 2 -le "${LOG_LEVEL}" ] || return 0
+	echo info "$@" 1>&2
+}
+
+log_err() {
+	[ 1 -le "${LOG_LEVEL}" ] || return 0
+	echo error "$@" 1>&2
+}
+
+log_crit() {
+	[ 0 -le "${LOG_LEVEL}" ] || return 0
+	echo critical "$@" 1>&2
+}
+
+main "$@"
