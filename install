@@ -8,7 +8,7 @@ set -e
 
 LOG_LEVEL=2
 GITHUB_DOWNLOAD=https://github.com/Watt3r/dotfiles.git
-INSTALL_DIR=~/.dotfiles2
+INSTALL_DIR=~/.dotfiles
 
 tmpdir=$(mktemp -d)
 trap 'rm -rf ${tmpdir}' EXIT
