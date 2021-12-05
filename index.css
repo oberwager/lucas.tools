@@ -54,10 +54,6 @@ a:hover::before {
   color: #2b2b2b;
 }
 
-ion-icon {
-  pointer-events: none;
-}
-
 /* Typewriter effect */
 h1 {
   font-family: "Cutive Mono", monospace;
@@ -165,6 +161,12 @@ li.social {
   padding-left: 5vw;
   padding-right: 5vw;
   font-size: 64px;
+}
+.icon {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
 }
 .aboutMe {
   display: flex;
