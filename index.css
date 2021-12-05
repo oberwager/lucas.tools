@@ -149,7 +149,7 @@ ul.social {
   margin-top: 5em;
   opacity: 0;
   animation: fadeIn ease 2s;
-  animation-delay: 18.5s;
+  animation-delay: 15s;
   animation-fill-mode: forwards;
 }
 li.social {
