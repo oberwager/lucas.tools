@@ -70,4 +70,15 @@ window.onload = function () {
       }, 9300);
     }
   })
+  // Update currently reading book
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', 'https://openlibrary.org/people/lucasobe/books/currently-reading.json', true);
+  xhr.onload = function() {
+    if (xhr.status >= 200 && xhr.status < 400) {
+      const data = JSON.parse(xhr.responseText);
+      document.getElementById("curBook").innerText = data.reading_log_entries.map(function(e) {return `${e.work.title} by ${e.work.author_names[0]}`}).join(" and ")
+      console.log(data)
+    }
+  };
+  xhr.send();
 };
