@@ -76,7 +76,7 @@ window.onload = function () {
   xhr.onload = function() {
     if (xhr.status >= 200 && xhr.status < 400) {
       const data = JSON.parse(xhr.responseText);
-      document.getElementById("curBook").innerText = data.reading_log_entries.map(function(e) {return `${e.work.title} by ${e.work.author_names[0]}`}).join(" and ")
+      document.getElementById("curBook").innerHTML = data.reading_log_entries.map(function(e) {return `<a href="https://openlibrary.org${e.work.key}">${e.work.title}</a> by ${e.work.author_names[0]}`}).join(" and ")
       console.log(data)
     }
   };
