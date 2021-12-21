@@ -77,8 +77,17 @@ window.onload = function () {
     if (xhr.status >= 200 && xhr.status < 400) {
       const data = JSON.parse(xhr.responseText);
       document.getElementById("curBook").innerHTML = data.reading_log_entries.map(function(e) {return `<a href="https://openlibrary.org${e.work.key}">${e.work.title}</a> by ${e.work.author_names[0]}`}).join(" and ")
-      console.log(data)
     }
   };
   xhr.send();
+  // Update last updated repo
+  const xhr2 = new XMLHttpRequest();
+  xhr2.open('GET', 'https://api.github.com/users/Watt3r/events?per_page=1', true);
+  xhr2.onload = function() {
+    if (xhr2.status >= 200 && xhr2.status < 400) {
+      const data = JSON.parse(xhr2.responseText);
+      document.getElementById("curRepo").innerHTML = `<a href="https://github.com/${data[0].repo.name}">${data[0].repo.name}</a>`
+    }
+  };
+  xhr2.send();
 };
