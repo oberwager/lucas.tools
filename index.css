@@ -2,6 +2,14 @@
   color: #f7f7f7;
   background: #2b2b2b;
 }
+@media only screen and (min-width: 767px) {
+  .container{
+    font-size: 3rem !important;
+  }
+  .carousel-content {
+    font-size: 2rem !important;
+  }
+}
 #name {
   opacity: 1 !important;
   padding: 0 !important;
@@ -59,14 +67,14 @@ h1 {
   font-family: "Cutive Mono", monospace;
   overflow: hidden;
   margin: 0;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1rem;
   white-space: nowrap;
-  margin-right: 0.15em;
+  margin-right: 0.15rem;
 }
 
 .type h1 {
   margin: 0;
-  border-right: 0.15em solid #2b2b2b;
+  border-right: 0.15rem solid #2b2b2b;
   animation: typing 3s steps(16), blink-cursor.95s step-end 10;
 }
 .bookType {
@@ -82,10 +90,11 @@ h1 {
   z-index: 1;
   padding-bottom: 0.5rem;
   background-color: #f7f7f7;
+  font-size: 1rem;
 }
 
 .sticky ~ * {
-  padding-top: 27px;
+  padding-top: 80px;
 }
 /* Rotating carousel text effect */
 .carousel {
@@ -146,7 +155,7 @@ h1 {
 /* Fade icons in */
 ul.social {
   padding: 0;
-  margin-top: 5em;
+  margin-top: 6rem;
   opacity: 0;
   animation: fadeIn ease 2s;
   animation-delay: 15s;
