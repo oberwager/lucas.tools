@@ -1,6 +1,6 @@
 ::selection {
-  color: #f7f7f7;
-  background: #2b2b2b;
+  color: var(--s);
+  background: var(--p);
 }
 @media only screen and (min-width: 767px) {
   .container{
@@ -29,13 +29,13 @@ ul.social {
 
 a {
   position: relative;
-  color: #2b2b2b;
+  color: var(--p);
   text-decoration: none;
   transition: 0.5s;
 }
 
 a:hover {
-  color: #2b2b2b;
+  color: var(--p);
 }
 
 a::before {
@@ -45,7 +45,7 @@ a::before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #2b2b2b;
+  background-color: var(--p);
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
@@ -59,7 +59,7 @@ a:hover::before {
   color: #696969;
 }
 .carousel-text > a:hover {
-  color: #2b2b2b;
+  color: var(--p);
 }
 
 /* Typewriter effect */
@@ -89,7 +89,7 @@ h1 {
   align-items: center;
   z-index: 1;
   padding-bottom: 0.5rem;
-  background-color: #f7f7f7;
+  background-color: var(--s);
   font-size: 1rem;
 }
 
@@ -118,7 +118,7 @@ h1 {
   right: 0;
   text-align: center;
   top: 0;
-  background-color: #f7f7f7;
+  background-color: var(--s);
   will-change: transform, opacity;
 }
 
@@ -173,7 +173,7 @@ li.social {
 }
 svg {
   fill: none;
-  stroke: #2b2b2b;
+  stroke: var(--p);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.5;
@@ -185,7 +185,7 @@ svg {
   width: 64px;
 }
 footer svg {
-  stroke: #f7f7f7;
+  stroke: var(--s);
   height: 44px;
   width: 44px;
 }
@@ -330,12 +330,12 @@ footer {
   font-family: "Quicksand", sans-serif;
   font-size: 0.9em;
   display: block;
-  background-color: rgb(43, 43, 43);
-  color: #f7f7f7;
+  background-color: var(--p);
+  color: var(--s);
 }
 footer ::selection {
-  color: #2b2b2b;
-  background: #f7f7f7;
+  color: var(--p);
+  background: var(--s);
 }
 .footerContent {
   max-width: 1312px;
@@ -345,7 +345,7 @@ footer ::selection {
   text-align: center;
   font-size: xxx-large;
   margin: 0;
-  color: #f7f7f7;
+  color: var(--s);
   padding-bottom: 4vh;
 }
 .footerLink {
@@ -354,13 +354,13 @@ footer ::selection {
   padding-bottom: 3%;
 }
 footer a {
-  color: #f7f7f7;
+  color: var(--s);
 }
 footer a:hover {
-  color: #f7f7f7;
+  color: var(--s);
 }
 footer a::before {
-  background-color: #f7f7f7;
+  background-color: var(--s);
 }
 .footerLink > ul {
   padding: 0;
@@ -374,13 +374,13 @@ li.footerSocial {
   font-size: x-large;
 }
 .footerSocial > a {
-  color: #f7f7f7;
+  color: var(--s);
 }
 .footerSocial > a:hover {
-  color: #f7f7f7;
+  color: var(--s);
 }
 .footerSocial > a::before {
-  background-color: #f7f7f7;
+  background-color: var(--s);
 }
 .footerLegal {
   font-family: "Cutive Mono", monospace;
@@ -417,7 +417,7 @@ li.footerSocial {
     border-color: transparent;
   }
   50% {
-    border-color: #2b2b2b;
+    border-color: var(--p);
   }
 }
 
