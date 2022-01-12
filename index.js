@@ -87,6 +87,15 @@ window.onload = function () {
     if (xhr2.status >= 200 && xhr2.status < 400) {
       const data = JSON.parse(xhr2.responseText);
       document.getElementById("curRepo").innerHTML = `<a href="https://github.com/${data[0].repo.name}">${data[0].repo.name}</a>`
+      const xhr3 = new XMLHttpRequest();
+      xhr3.open('GET', `https://api.github.com/repos/${data[0].repo.name}` , true);
+      xhr3.onload = function() {
+        const data2 = JSON.parse(xhr3.responseText)
+        if (data2.homepage) {
+          document.getElementById("curRepo").firstChild.setAttribute("href", data2.homepage)
+        }
+      }
+      xhr3.send();
     }
   };
   xhr2.send();
