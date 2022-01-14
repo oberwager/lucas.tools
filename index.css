@@ -5,6 +5,7 @@
 @media only screen and (min-width: 767px) {
   .container{
     font-size: 3rem !important;
+    width: 725.5px;
   }
   .carousel-content {
     font-size: 2rem !important;
@@ -74,12 +75,8 @@ h1 {
 
 .type h1 {
   margin: 0;
-  border-right: 0.15rem solid #2b2b2b;
-  animation: typing 3s steps(16), blink-cursor.95s step-end 10;
-}
-.bookType {
-  margin: 0 auto;
-  animation: typing 1s steps(17, end);
+  border-right: 0.15rem solid var(--p);
+  animation: typing 2s steps(17, jump-none), blink-cursor.95s step-end 10;
 }
 .sticky {
   position: fixed;
