@@ -10,6 +10,9 @@
   .carousel-content {
     font-size: 2rem !important;
   }
+  h1 {
+    height: 5rem !important;
+  }
 }
 #name {
   opacity: 1 !important;
@@ -70,7 +73,7 @@ h1 {
   letter-spacing: 0.1rem;
   white-space: nowrap;
   margin-right: 0.15rem;
-  height: 80px;
+  height: 2rem;
   transition: font-size 0.5s;
 }
 
