@@ -2,18 +2,6 @@
   color: var(--s);
   background: var(--p);
 }
-@media only screen and (min-width: 767px) {
-  .container{
-    font-size: 3rem !important;
-    width: 725.5px;
-  }
-  .carousel-content {
-    font-size: 2rem !important;
-  }
-  h1 {
-    height: 5rem !important;
-  }
-}
 #name {
   opacity: 1 !important;
   padding: 0 !important;
@@ -96,7 +84,7 @@ h1 {
 }
 
 .sticky ~ * {
-  padding-top: 80px;
+  padding-top: 1.8rem;
 }
 /* Rotating carousel text effect */
 .carousel {
@@ -486,5 +474,21 @@ li.footerSocial {
     align-items: center;
     display: flex;
     padding: 1em;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .container{
+    font-size: 3rem;
+    width: 725.5px;
+  }
+  .carousel-content {
+    font-size: 2rem;
+  }
+  h1 {
+    height: 5rem;
+  }
+  .sticky ~ * {
+    padding-top: 80px;
   }
 }
