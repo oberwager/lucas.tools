@@ -2,7 +2,6 @@ const header = document.getElementById("header");
 let sticky = header.offsetTop;
 let worksTimeout;
 let typeTimeout;
-let playAnimations = false;
 scrollEvent = () => {
   // Check if Lucas Oberwager should be stuck to top
   if (window.pageYOffset >= sticky) {
@@ -43,33 +42,9 @@ window.onload = function () {
     sticky = container.offsetTop;
     scrollEvent();
   });
-  if (document.hasFocus()) {
-    playAnimations = true
-    typeTimeout = setTimeout(function () {
-      document.getElementsByClassName("type")[0].classList.remove("type");
-    }, 9300);
-  } else {
-    clearTimeout(worksTimeout);
-    document.getAnimations().forEach(
-      function (animation) {
-        animation.pause();
-      }
-    );
-  }
-  window.addEventListener('focus', function () {
-    if (document.hasFocus() && !playAnimations) {
-      console.log("play animation")
-      playAnimations = true
-      document.getAnimations().forEach(
-        function (animation) {
-          animation.play();
-        }
-      );
-      typeTimeout = setTimeout(function () {
-        document.getElementsByClassName("type")[0].classList.remove("type");
-      }, 9300);
-    }
-  })
+  typeTimeout = setTimeout(function () {
+    document.getElementsByClassName("type")[0].classList.remove("type");
+  }, 9300);
   // Update currently reading book
   const xhr = new XMLHttpRequest();
   xhr.open('GET', 'https://openlibrary.org/people/lucasobe/books/currently-reading.json', true);
