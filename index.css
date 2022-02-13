@@ -274,7 +274,6 @@ img {
 .worksInView {
   animation: rotate-last 3s;
 }
-
 .subWorks {
   max-width: 1312px;
   margin: auto;
