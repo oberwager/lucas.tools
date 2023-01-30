@@ -2,6 +2,11 @@ const header = document.getElementById("header");
 let sticky = header.offsetTop;
 let worksTimeout;
 let typeTimeout;
+function titleCase(s) {
+  return s.replace(/\w\S*/g, function (t) {
+    return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase();
+  });
+}
 scrollEvent = () => {
   // Check if Lucas Oberwager should be stuck to top
   if (window.pageYOffset >= sticky) {
@@ -38,7 +43,7 @@ window.onload = function () {
   window.addEventListener("scroll", scrollEvent);
   window.addEventListener("resize", function () {
     windowHeight = window.innerHeight;
-    const container =  document.getElementById("header").parentElement;
+    const container = document.getElementById("header").parentElement;
     sticky = container.offsetTop;
     scrollEvent();
   });
@@ -47,29 +52,37 @@ window.onload = function () {
   }, 9300);
   // Update currently reading book
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://openlibrary.org/people/lucasobe/books/currently-reading.json', true);
-  xhr.onload = function() {
+  xhr.open("GET", "https://openlibrary.org/people/lucasobe/books/currently-reading.json", true);
+  xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 400) {
       const data = JSON.parse(xhr.responseText);
-      document.getElementById("curBook").innerHTML = data.reading_log_entries.map(function(e) {return `<a href="https://openlibrary.org${e.work.key}">${e.work.title}</a> by ${e.work.author_names[0]}`}).join(" and ")
+      document.getElementById("curBook").innerHTML = data.reading_log_entries
+        .map(function (e) {
+          return `<a href="https://openlibrary.org${
+            e.work.key
+          }">${titleCase(e.work.title)}</a> by ${titleCase(e.work.author_names[0])}`;
+        })
+        .join(" and ");
     }
   };
   xhr.send();
   // Update last updated repo
   const xhr2 = new XMLHttpRequest();
-  xhr2.open('GET', 'https://api.github.com/users/Watt3r/events?per_page=1', true);
-  xhr2.onload = function() {
+  xhr2.open("GET", "https://api.github.com/users/Watt3r/events?per_page=1", true);
+  xhr2.onload = function () {
     if (xhr2.status >= 200 && xhr2.status < 400) {
       const data = JSON.parse(xhr2.responseText);
-      document.getElementById("curRepo").innerHTML = `<a href="https://github.com/${data[0].repo.name}">${data[0].repo.name}</a>`
+      document.getElementById(
+        "curRepo"
+      ).innerHTML = `<a href="https://github.com/${data[0].repo.name}">${data[0].repo.name}</a>`;
       const xhr3 = new XMLHttpRequest();
-      xhr3.open('GET', `https://api.github.com/repos/${data[0].repo.name}` , true);
-      xhr3.onload = function() {
-        const data2 = JSON.parse(xhr3.responseText)
+      xhr3.open("GET", `https://api.github.com/repos/${data[0].repo.name}`, true);
+      xhr3.onload = function () {
+        const data2 = JSON.parse(xhr3.responseText);
         if (data2.homepage) {
-          document.getElementById("curRepo").firstChild.setAttribute("href", data2.homepage)
+          document.getElementById("curRepo").firstChild.setAttribute("href", data2.homepage);
         }
-      }
+      };
       xhr3.send();
     }
   };
