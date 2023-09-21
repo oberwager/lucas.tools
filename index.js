@@ -7,6 +7,32 @@ function titleCase(s) {
     return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase();
   });
 }
+function timeSince(date) {
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = seconds / 31536000;
+
+  if (interval > 1) {
+    return Math.floor(interval) + " years";
+  }
+  interval = seconds / 2592000;
+  if (interval > 1) {
+    return Math.floor(interval) + " months";
+  }
+  interval = seconds / 86400;
+  if (interval > 1) {
+    return Math.floor(interval) + " days";
+  }
+  interval = seconds / 3600;
+  if (interval > 1) {
+    return Math.floor(interval) + " hours";
+  }
+  interval = seconds / 60;
+  if (interval > 1) {
+    return Math.floor(interval) + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
 scrollEvent = () => {
   // Check if Lucas Oberwager should be stuck to top
   if (window.pageYOffset >= sticky) {
@@ -58,9 +84,9 @@ window.onload = function () {
       const data = JSON.parse(xhr.responseText);
       document.getElementById("curBook").innerHTML = data.reading_log_entries
         .map(function (e) {
-          return `<a href="https://openlibrary.org${
-            e.work.key
-          }">${titleCase(e.work.title)}</a> by ${titleCase(e.work.author_names[0])}`;
+          return `<a href="https://openlibrary.org${e.work.key}">${titleCase(
+            e.work.title,
+          )}</a> by ${titleCase(e.work.author_names[0])}`;
         })
         .join(" and ");
     }
@@ -72,9 +98,9 @@ window.onload = function () {
   xhr2.onload = function () {
     if (xhr2.status >= 200 && xhr2.status < 400) {
       const data = JSON.parse(xhr2.responseText);
-      document.getElementById(
-        "curRepo"
-      ).innerHTML = `<a href="https://github.com/${data[0].repo.name}">${data[0].repo.name}</a>`;
+      document.getElementById("curRepo").innerHTML = `<a href="https://github.com/${
+        data[0].repo.name
+      }">${data[0].repo.name}</a>, ${timeSince(new Date(data[0].created_at))} ago`;
       const xhr3 = new XMLHttpRequest();
       xhr3.open("GET", `https://api.github.com/repos/${data[0].repo.name}`, true);
       xhr3.onload = function () {
