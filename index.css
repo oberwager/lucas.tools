@@ -82,7 +82,9 @@ h1 {
 .type h1 {
   margin: 0;
   border-right: 0.15rem solid var(--p);
-  animation: typing 2s steps(17, jump-none), blink-cursor.95s step-end 10;
+  animation:
+    typing 2s steps(17, jump-none),
+    blink-cursor.95s step-end 10;
 }
 .sticky {
   position: fixed;
@@ -491,7 +493,7 @@ li.footerSocial {
 }
 
 @media only screen and (min-width: 767px) {
-  .container{
+  .container {
     font-size: 3rem;
     width: 725.5px;
   }
