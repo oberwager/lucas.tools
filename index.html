@@ -2,35 +2,31 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucas Oberwager</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport" />
-    <meta content="#f7f7f7" name="msapplication-TileColor" />
-    <meta content=/favicon/browserconfig.xml name=msapplication-config>
-    <meta content="#f7f7f7" name="theme-color" />
-    <meta content="Lucas Oberwager" property="og:title" />
-    <meta content="website" property="og:type" />
-    <meta content=https://lucas.tools" property=og:url> <meta content=https://lucas.tools/logo.png
-    property=og:image>
-    <meta
-      content="Lucas Oberwager, Developer and Co-Founder of Ecobux.org"
-      property="og:description"
-    />
-    <meta content="Lucas Oberwager, Developer and Co-Founder of Ecobux.org" name="description" />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Quicksand:wght@300&family=Raleway&display=swap"
-      as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Quicksand:wght@300&family=Raleway&display=swap"
-        rel="stylesheet"
-        type="text/css"
-      />
-    </noscript>
+    <link rel="canonical" href="https://lucas.tools" />
+    <title>Lucas Oberwager | Back-End Developer</title>
+    <meta name="description" content="Back-End Developer, Co-Founder of Ecobux.org, and Computer Science student at Northeastern. Explore my projects and connect with me!" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="msapplication-TileColor" content="#f7f7f7" />
+    <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
+    <meta name="theme-color" content="#f7f7f7" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta property="og:title" content="Lucas Oberwager" />
+    <meta property="og:description" content="Back-End Developer, Co-Founder of Ecobux.org, and Computer Science student at Northeastern. Explore my projects and connect with me!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lucas.tools" />
+    <meta property="og:image" content="https://lucas.tools/logo.png" />
+
+    <link rel="preload" href="fonts/EgyptianEF-BoldExtended.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/HelveticaNeue-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/SpecialElite-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
     <link
       rel="preload"
       href="index.css"
@@ -38,492 +34,96 @@
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript><link rel="stylesheet" href="index.css" /></noscript>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/manifest.json" />
     <style>
       :root {
-        --p: #2b2b2b;
+        --p: #000;
         --s: #f7f7f7;
-        --t: #247BA0;
+        --r: #691109;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--p);
+        color: var(--s);
+        margin: 0;
       }
       html {
         scroll-behavior: smooth;
+        scroll-snap-type: mandatory;
+        scroll-snap-points-y: repeat(100vh);
+        scroll-snap-type: y mandatory;
       }
-      body {
-        background-color: var(--s);
-        color: var(--p);
-        margin: 0;
-      }
-      .content {
-        margin-bottom: -2vh;
-      }
-      .card {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 65vh;
+      section {
+        height: 101vh;
+        scroll-snap-align: start;
         text-align: center;
-        font-family: "Quicksand", sans-serif;
-        transition: transform 0.5s;
-        transition-duration: 0.5s;
-        backface-visibility: hidden;
-        -webkit-font-smoothing: subpixel-antialiased;
       }
-      #name {
-        color: var(--p);
-        padding-bottom: 15rem;
-        opacity: 0;
+      .transition { 
+        height: 50vh;
       }
-      .carousel-text,
-      ul.social {
-        display: none;
+      section svg, .transition svg {
+        text-align: center;
+        color: white;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        font-size: calc(1rem + 3vw);
       }
-      li.social {
-        height: 80.36px;
-        width: 64px;
+      text {
+        font-family: 'Helvetica Neue';
+      }
+      .h1 {
+        font-family: 'EgyptianEF';
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <div class="content">
-      <div class="card">
-        <section class="container">
-          <div id="header">
-            <div id="name" class="type">
-              <a class="no-underline" href="#">
-                <h1>Lucas Oberwager<span class="pop">.</span></h1>
-              </a>
-            </div>
-          </div>
-          <div class="carousel">
-            <h2 class="carousel-text">Back-End Developer.</h2>
-          </div>
-          <ul class="links social">
-            <li class="social">
-              <a href="https://github.com/watt3r" title="GitHub">
-                <svg viewBox="0 0 24 24">
-                  <use xlink:href="#github" />
-                </svg>
-              </a>
-            </li>
-            <li class="social">
-              <a href="https://facebook.com/Lucas.Oberwager" title="Facebook">
-                <svg viewBox="0 0 24 24">
-                  <path
-                    d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
-                  />
-                </svg>
-              </a>
-            </li>
-            <li class="social">
-              <a href="https://www.instagram.com/lucas.oberwager" title="Instagram">
-                <svg width="44" height="44" viewBox="0 0 24 24">
-                  <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
-                  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                  <path d="M16.5 7.5l0 .01" />
-                </svg>
-              </a>
-            </li>
-            <li class="social">
-              <a href="mailto:hello@lucas.tools" title="E-Mail">
-                <svg viewBox="0 0 24 24">
-                  <rect x="3" y="5" width="18" height="14" rx="2" />
-                  <polyline points="3 7 12 13 21 7" />
-                </svg>
-              </a>
-            </li>
-            <li class="social">
-              <a href="https://linkedin.com/in/lucasoberwager" title="LinkedIn">
-                <svg viewBox="0 0 24 24">
-                  <use xlink:href="#linked" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </div>
-
-      <div class="works">
-        <div id="workAnchor" style="position: absolute; margin-top: -3em; left: 0"></div>
-        <h3 class="worksHeader" id="projects">Featured<span class="pop">_</span>Projects</h3>
-        <div class="worksItem hidden">
-          <div class="worksImage">
-            <a href="https://ecobux.org">
-              <img
-                loading="lazy"
-                src="images/ecobux_gf09pg_c_scale,w_1400.png"
-                sizes="(max-width: 1400px) 93vw, 1400px"
-                srcset="
-                  images/ecobux_gf09pg_c_scale,w_200.png   200w,
-                  images/ecobux_gf09pg_c_scale,w_341.png   341w,
-                  images/ecobux_gf09pg_c_scale,w_448.png   448w,
-                  images/ecobux_gf09pg_c_scale,w_537.png   537w,
-                  images/ecobux_gf09pg_c_scale,w_616.png   616w,
-                  images/ecobux_gf09pg_c_scale,w_689.png   689w,
-                  images/ecobux_gf09pg_c_scale,w_761.png   761w,
-                  images/ecobux_gf09pg_c_scale,w_822.png   822w,
-                  images/ecobux_gf09pg_c_scale,w_889.png   889w,
-                  images/ecobux_gf09pg_c_scale,w_943.png   943w,
-                  images/ecobux_gf09pg_c_scale,w_997.png   997w,
-                  images/ecobux_gf09pg_c_scale,w_1042.png 1042w,
-                  images/ecobux_gf09pg_c_scale,w_1100.png 1100w,
-                  images/ecobux_gf09pg_c_scale,w_1151.png 1151w,
-                  images/ecobux_gf09pg_c_scale,w_1201.png 1201w,
-                  images/ecobux_gf09pg_c_scale,w_1249.png 1249w,
-                  images/ecobux_gf09pg_c_scale,w_1298.png 1298w,
-                  images/ecobux_gf09pg_c_scale,w_1349.png 1349w,
-                  images/ecobux_gf09pg_c_scale,w_1382.png 1382w,
-                  images/ecobux_gf09pg_c_scale,w_1400.png 1400w
-                "
-                src="ecobux_gf09pg_c_scale,w_1400.png"
-                alt="Ecobux landing page image"
-              />
-            </a>
-          </div>
-          <div class="worksContent">
-            <div>
-              <h4>
-                <a class="worksHeader" href="https://ecobux.org"> EcoBux </a>
-              </h4>
-              <p>
-                A charity organization dedicated to helping charities from around the world accrue
-                payments through crowdfunding.
-              </p>
-              <ul class="worksTech">
-                <li>Solidity</li>
-                <li>JavaScript</li>
-                <li>Jest</li>
-              </ul>
-              <ul class="worksLink">
-                <li>
-                  <a href="https://github.com/Ecobux-org/Ecobux" title="Github Project Link">
-                    <svg viewBox="0 0 24 24">
-                      <use xlink:href="#github" />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://ecobux.org" title="Link to website">
-                    <svg viewBox="0 0 24 24">
-                      <use xlink:href="#link" />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="worksItem hidden">
-          <div class="worksImage">
-            <a href="https://trivio.me">
-              <img
-                  sizes="(max-width: 1400px) 100vw, 1400px"
-                  loading="lazy"
-                  srcset="
-                          images/trivio_kipvfo_c_scale,w_200.png 200w,
-                          images/trivio_kipvfo_c_scale,w_472.png 472w,
-                          images/trivio_kipvfo_c_scale,w_668.png 668w,
-                          images/trivio_kipvfo_c_scale,w_821.png 821w,
-                          images/trivio_kipvfo_c_scale,w_958.png 958w,
-                          images/trivio_kipvfo_c_scale,w_1077.png 1077w,
-                          images/trivio_kipvfo_c_scale,w_1170.png 1170w,
-                          images/trivio_kipvfo_c_scale,w_1290.png 1290w,
-                          images/trivio_kipvfo_c_scale,w_1400.png 1400w"
-                  src="images/trivio_kipvfo_c_scale,w_1400.png"
-                  alt="trivio.me Landing page"
-                  >
-            </a>
-          </div>
-          <div class="worksContent">
-            <div>
-              <h4>
-                <a class="worksHeader" href="https://trivio.me"> Trivio.me </a>
-              </h4>
-              <p>
-                Trivio is a fun Spotify trivia game, where your listening habits are the questions!
-                Login through Spotify and play with friends.
-              </p>
-              <ul class="worksTech">
-                <li>Node.js</li>
-                <li>Spotify Web API</li>
-                <li>Express</li>
-              </ul>
-              <ul class="worksLink">
-                <li>
-                  <a href="https://github.com/watt3r/trivio" title="Github Project Link">
-                    <svg viewBox="0 0 24 24">
-                      <use xlink:href="#github" />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://trivio.me" title="Link to website">
-                    <svg viewBox="0 0 24 24">
-                      <use xlink:href="#link" />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="aboutMe">
-        <div>
-          <h2>About<span class="pop">(</span>me<span class="pop">)</span></h2>
-          <div>
-            <p>
-            Hey! I'm Lucas, a back-end developer currently studying Computer Science @ Northeastern. 
-            </p>
-            <p>
-              I started coding when I was 11, and have built many
-              <a href="#workAnchor">Projects</a> since then.
-            </p>
-            <p>
-              In my free time, I enjoy playing Lacrosse and reading books. I am currently reading
-              <span id="curBook"
-                >Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific
-                Problem of His Time</span
-              >.
-            </p>
-            <p>I was last seen working on <span id="curRepo">Watt3r/wotd</span>.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="subWorks">
-        <h3 class="subWorksHeader">Projects<span class="pop">+</span></h3>
-        <ul class="subWorksList">
-          <li class="subWorksItem hidden">
-            <div class="subWorksItemHeader">
-              <svg viewBox="0 0 24 24">
-                <use xlink:href="#cube" />
-              </svg>
-            </div>
-            <h4>
-              <a class="subWorksLink" href="https://devpost.com/software/e-nose">E-Nose</a>
-            </h4>
-            <p>
-              An electronic nose built to measure how good or bad a smell is. I have anosmia, and
-              created this to detect when milk has spoilt, if there is a gas leak in my house, or to
-              tell if my clothes smell bad.
-            </p>
-            <p>
-              <b>Winner of Best High School Hack - DiamondHacks '21</b>
-            </p>
-            <ul class="worksTech">
-              <li>C++</li>
-              <li>Hardware</li>
-              <li>I<sup>2</sup>C Communication</li>
-            </ul>
-            <ul class="worksLink">
-              <li>
-                <a href="https://github.com/Watt3r/e-nose" title="Github Project Link">
-                  <svg viewBox="0 0 24 24">
-                    <use xlink:href="#github" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://devpost.com/software/e-nose" title="Link to website">
-                  <svg viewBox="0 0 24 24">
-                    <use xlink:href="#link" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="subWorksItem hidden">
-            <div class="subWorksItemHeader">
-              <svg viewBox="0 0 24 24">
-                <use xlink:href="#cube" />
-              </svg>
-            </div>
-            <h4>
-              <a class="subWorksLink" href="https://vibrant-aryabhata-baf36a.netlify.app/">
-                trtl.tv
-              </a>
-            </h4>
-            <p>
-              A Streamlabs integration tool to effortlessly donate to Twitch and YouTube streamers
-              with TurtleCoin®. Fast, Simple, Secure.
-            </p>
-            <ul class="worksTech">
-              <li>Python</li>
-              <li>MySQL</li>
-              <li>TurtleCoin Walletd API</li>
-            </ul>
-            <ul class="worksLink">
-              <li>
-                <a href="https://github.com/TwitchTurtle" title="Github Project Link">
-                  <svg viewBox="0 0 24 24">
-                    <use xlink:href="#github" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://vibrant-aryabhata-baf36a.netlify.app" title="Link to website">
-                  <svg viewBox="0 0 24 24">
-                    <use xlink:href="#link" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="subWorksItem hidden">
-            <div class="subWorksItemHeader">
-              <svg viewBox="0 0 24 24">
-                <use xlink:href="#cube" />
-              </svg>
-            </div>
-            <h4>
-              <a class="subWorksLink" href="https://github.com/watt3r/ardmin"> Ardmin </a>
-            </h4>
-            <p>
-              Ardmin is a simple Arduino bike computer. Using a GPS module, this computer can
-              calculate ride statistics, such as average speed, distance travelled, and has a simple
-              "lost" feature to get you back to where you started the ride.
-            </p>
-            <ul class="worksTech">
-              <li>C++</li>
-              <li>Arduino</li>
-              <li>Fritzing</li>
-            </ul>
-            <ul class="worksLink">
-              <li>
-                <a href="https://github.com/watt3r/ardmin" title="Github Project Link">
-                  <svg viewBox="0 0 24 24">
-                    <use xlink:href="#github" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="subWorksItem hidden">
-            <div class="subWorksItemHeader">
-              <svg viewBox="0 0 24 24">
-                <use xlink:href="#cube" />
-              </svg>
-            </div>
-            <h4>
-              <a class="subWorksLink" href="https://turtlecoin.lol/wallet"> Paper Turtle </a>
-            </h4>
-            <p>Paper wallet generator for TurtleCoin®</p>
-            <ul class="worksTech">
-              <li>HTML/CSS</li>
-              <li>Javascript</li>
-            </ul>
-            <ul class="worksLink">
-              <li>
-                <a href="https://github.com/watt3r/paper-turtle" title="Github Project Link">
-                  <svg viewBox="0 0 24 24">
-                    <use xlink:href="#github" />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://turtlecoin.lol/wallet" title="Link to website">
-                  <svg viewBox="0 0 24 24">
-                    <use xlink:href="#link" />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <div class="subWorksFooter hidden">
-          <a href="https://github.com/Watt3r?tab=repositories">Archive</a>
-        </div>
-      </div>
+    <section class="landing">
+      <svg id="landing-svg">
+        <defs>
+          <mask id="landing-text-mask">
+            <path id="landing-mask-path" d="" fill="none" stroke="white" stroke-width="3rem"/>
+          </mask>
+        </defs>
+        <path id="landing-red-path" fill="none" stroke="var(--r)" stroke-width="3rem"/>
+        <rect id="landing-text-box" fill="var(--p)"/>
+        <text class="h1" id="landing-text" x="50%" y="50" text-anchor="middle" fill="var(--s)" font-size="2rem" mask="url(#landing-text-mask)">
+          Lucas Oberwager
+        </text>
+      </svg>
+    </section>
+    <div class="transition">
+      <svg id="transition-svg">
+        <path id="transition-red-path" fill="none" stroke="var(--r)" stroke-width="5rem"/>
+      </svg>
     </div>
-    <div class="separator">
-      <!-- Maybe put something in here? -->
-    </div>
-    <footer>
-      <div class="footerContent">
-        <a class="no-underline" href="#">
-          <h1 class="logo">LO.</h1>
-        </a>
+    <section class="about">
+      <svg id="about-svg">
+        <defs>
+          <mask id="about-text-mask">
+            <path id="about-mask-path" d="" fill="none" stroke="white" stroke-width="3rem"/>
+          </mask>
+        </defs>
+        <path id="about-red-path" d="" fill="none" stroke="var(--r)" />
+        <text class="h1" id="about-text" x="50%" y="15%" text-anchor="middle" fill="var(--s)" font-size="2rem" mask="url(#about-text-mask)">
+          About Me
+        </text>
 
-        <div class="footerLink">
-          <h2>E-Mail</h2>
-          <a href="mailto:hello@lucas.tools" title="E-Mail">hello@lucas.tools</a>
-        </div>
+        <text id="about-description" x="0%" y="30%" text-anchor="end" fill="var(--s)" font-size="1rem" mask="url(#about-text-mask)">
+          <tspan x="48%" dy="1.2em">I'm a Back-End Developer,</tspan>
+          <tspan x="48%" dy="1.2em">Co-Founder of Ecobux.org,</tspan>
+          <tspan x="48%" dy="1.2em">and Computer Science student</tspan>
+          <tspan x="48%" dy="1.2em">at Northeastern.</tspan>
+        </text>
 
-        <div class="footerLink">
-          <h2>Follow Me</h2>
-          <ul>
-            <li class="footerSocial">
-              <a href="https://github.com/watt3r" title="GitHub">
-                <svg viewBox="0 0 24 24" >
-                  <use xlink:href="#github" />
-                </svg>
-              </a>
-            </li>
-            <li class="footerSocial">
-              <a href="https://facebook.com/Lucas.Oberwager" title="Facebook">
-                <svg viewBox="0 0 24 24" >
-                  <path
-                    d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
-                  />
-                </svg>
-              </a>
-            </li>
-            <li class="footerSocial">
-              <a href="https://linkedin.com/in/lucasoberwager" title="LinkedIn">
-                <svg viewBox="0 0 24 24" >
-                  <use xlink:href="#linked" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </div>
+        <image id="about-profile-image" xlink:href="/images/profile.png" x="50%" y="20%" height="25%" mask="url(#about-text-mask)" />
+        <image id="about-border-image" xlink:href="/images/border.png" x="50%" y="20%" height="25%" mask="url(#about-text-mask)"/>
+        <rect id="profile-overlay" x="50%" y="20%" width="25%" height="25%" fill="var(--r)" mask="url(#about-text-mask)"/>
 
-        <div class="footerLegal">
-          <p>© 2021 - Lucas Oberwager</p>
-          <a href="https://github.com/Watt3r/lucas.tools">Open source on GitHub</a>
-        </div>
-      </div>
-    </footer>
+      </svg>
+    </section>
     <script src="index.js"></script>
-    <svg style="position: absolute; z-index: -1;height:0px;width:0px">
-      <defs>
-        <g id="github">
-          <path
-            d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
-          />
-        </g>
-        <g id="link">
-          <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
-          <line x1="10" y1="14" x2="20" y2="4" />
-          <polyline points="15 4 20 4 20 9" />
-        </g>
-        <g id="cube">
-          <path d="M6 17.6l-2 -1.1v-2.5" />
-          <path d="M4 10v-2.5l2 -1.1" />
-          <path d="M10 4.1l2 -1.1l2 1.1" />
-          <path d="M18 6.4l2 1.1v2.5" />
-          <path d="M20 14v2.5l-2 1.12" />
-          <path d="M14 19.9l-2 1.1l-2 -1.1" />
-          <line x1="12" y1="12" x2="14" y2="10.9" />
-          <line x1="18" y1="8.6" x2="20" y2="7.5" />
-          <line x1="12" y1="12" x2="12" y2="14.5" />
-          <line x1="12" y1="18.5" x2="12" y2="21" />
-          <path d="M12 12l-2 -1.12" />
-          <line x1="6" y1="8.6" x2="4" y2="7.5" />
-        </g>
-        <g id="linked">
-          <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-          <line x1="8" y1="11" x2="8" y2="16"></line>
-          <line x1="8" y1="8" x2="8" y2="8.01"></line>
-          <line x1="12" y1="16" x2="12" y2="11"></line>
-          <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
-        </g>
-      </defs>
-    </svg>
   </body>
 </html>

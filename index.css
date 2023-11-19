@@ -1,455 +1,121 @@
-::selection {
-  color: var(--s);
-  background: var(--p);
+@font-face {
+    font-family: 'EgyptianEF';
+    src: url('fonts/EgyptianEF-BoldExtended.woff2') format('woff2'),
+        url('fonts/EgyptianEF-BoldExtended.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
 }
-.pop {
-  color: var(--t);
-  font-size: 1.2em;
-  font-weight: 700;
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('fonts/HelveticaNeue-Medium.woff2') format('woff2'),
+        url('fonts/HelveticaNeue-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
-#name {
-  opacity: 1 !important;
-  padding: 0 !important;
-  width: fit-content;
-  margin: 0 auto;
+
+@font-face {
+    font-family: 'Special Elite';
+    src: url('fonts/SpecialElite-Regular.woff2') format('woff2'),
+        url('fonts/SpecialElite-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
-.carousel-text,
-ul.social {
-  display: block !important;
-}
-@media only screen and (min-width: 448px) {
-  li.social {
-    padding-left: 1vw !important;
-    padding-right: 1vw !important;
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: var(--path-length);
   }
-}
-
-a {
-  position: relative;
-  color: var(--p);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--p);
-}
-
-a::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--t);
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out 0s;
-}
-a.no-underline::before {
-  height: 0px;
-  transform: initial;
-}
-
-a:hover::before {
-  visibility: visible;
-  transform: scaleX(1);
-}
-a.no-underline:hover::before {
-  visibility: hidden;
-  transform: initial;
-}
-
-.carousel-text > a {
-  color: #696969;
-}
-.carousel-text > a:hover {
-  color: var(--p);
-}
-
-/* Typewriter effect */
-h1 {
-  font-family: "Cutive Mono", monospace;
-  overflow: hidden;
-  margin: 0;
-  letter-spacing: 0.1rem;
-  white-space: nowrap;
-  margin-right: 0.15rem;
-  height: 2rem;
-  transition: transform 0.5s;
-}
-
-.type h1 {
-  margin: 0;
-  border-right: 0.15rem solid var(--p);
-  animation:
-    typing 2s steps(17, jump-none),
-    blink-cursor.95s step-end 10;
-}
-.sticky {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  align-items: center;
-  z-index: 1;
-  padding-bottom: 0.5rem;
-  background-color: var(--s);
-}
-
-.sticky h1 {
-  transform: scale(0.4);
-}
-
-.sticky ~ * {
-  padding-top: 1.8rem;
-}
-
-.carousel {
-  font-size: 1rem;
-  align-items: center;
-  width: 100%;
-}
-
-.carousel-text {
-  opacity: 0;
-  max-width: 93vw;
-  margin: 1vh auto;
-  background-color: var(--s);
-  animation-name: rotate-last;
-  animation-duration: 2s;
-  animation-delay: 2.1s;
-  animation-fill-mode: forwards;
-  will-change: transform, opacity;
-}
-
-/* Fade icons in */
-ul.social {
-  padding: 0;
-  opacity: 0;
-  animation: fadeIn ease 2s;
-  animation-delay: 2.5s;
-  animation-fill-mode: forwards;
-}
-li.social {
-  height: 80.36px;
-  width: 64px;
-  position: relative;
-  display: inline-block;
-  padding: 0;
-  padding-left: 5vw;
-  padding-right: 5vw;
-  font-size: 64px;
-}
-svg {
-  fill: none;
-  stroke: var(--p);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
-  height: 32px;
-  width: 32px;
-}
-.social svg {
-  height: 64px;
-  width: 64px;
-}
-footer svg {
-  stroke: var(--s);
-  height: 44px;
-  width: 44px;
-}
-.aboutMe {
-  display: flex;
-  align-items: center;
-  height: 70vh;
-  width: 70vw;
-  max-width: 1312px;
-  margin: auto;
-  font-family: "Quicksand";
-  font-size: 1.1rem;
-  line-height: 150%;
-}
-.aboutMe > h2 {
-  font-family: "Raleway", serif;
-}
-.aboutMe a {
-  font-family: "Raleway", serif;
-}
-img {
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
-  border-radius: 0.3rem;
-}
-
-.works {
-  font-family: "Raleway", serif;
-  transition: transform 0.5s;
-  transition-duration: 0.5s;
-  transition: all 2s;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-  width: 93vw;
-  max-width: 1312px;
-  margin: -2vh auto;
-}
-.worksItem:nth-of-type(odd) {
-  text-align: right;
-}
-.worksContent > h4 {
-  font-size: 2.5rem;
-  margin: 0;
-}
-.worksContent > p {
-  font-size: 1rem;
-}
-.worksHeader {
-  font-size: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-}
-.worksContent {
-  width: 100%;
-}
-.worksImage {
-  width: 100%;
-}
-.worksImage img {
-  width: 100%;
-  height: 100%;
-}
-.worksLink {
-  display: inline-block;
-  font-size: 2rem;
-  padding: 0;
-  margin: 1vh 0;
-  width: 100%;
-}
-.worksLink > li {
-  display: inline-block;
-}
-.worksLink > li + li {
-  padding-left: 1%;
-}
-.worksTech {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  font-family: "Cutive Mono", monospace;
-}
-.worksTech > li {
-  display: inline-block;
-}
-.worksTech > li + li {
-  padding-left: 2%;
-}
-.hidden {
-  opacity: 0;
-}
-.worksInView {
-  animation: rotate-last 3s;
-}
-.subWorks {
-  max-width: 1312px;
-  margin: auto;
-}
-.subWorksHeader {
-  font-family: "Raleway", serif;
-  font-size: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 70%;
-  transition: transform 0.5s;
-  transition-duration: 0.5s;
-  backface-visibility: hidden;
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-.subWorksList {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-.subWorksItem {
-  display: inline-block;
-  padding: 2rem 1.75rem;
-  margin: 1rem;
-  border-radius: 0.5rem;
-  font-family: "Quicksand", sans-serif;
-}
-.subWorksItem > h4 {
-  font-size: 3rem;
-  margin: 1rem 0;
-}
-.subWorksItemHeader {
-  text-align: left;
-  font-size: 5rem;
-}
-.subWorksFooter {
-  font-size: 4rem;
-  font-family: "Quicksand", sans-serif;
-  text-align: center;
-}
-footer {
-  padding-top: 7vh;
-  font-family: "Quicksand", sans-serif;
-  font-size: 0.9em;
-  display: block;
-  background-color: var(--p);
-  color: var(--s);
-}
-footer ::selection {
-  color: var(--p);
-  background: var(--s);
-}
-.footerContent {
-  max-width: 1312px;
-  margin: auto;
-}
-.logo {
-  text-align: center;
-  font-size: xxx-large;
-  margin: 0;
-  color: var(--s);
-  padding-bottom: 4vh;
-}
-.footerLink {
-  padding-left: 15%;
-  padding-right: 15%;
-  padding-bottom: 3%;
-}
-footer a {
-  color: var(--s);
-}
-footer a:hover {
-  color: var(--s);
-}
-footer a::before {
-  background-color: var(--s);
-}
-.footerLink > ul {
-  padding: 0;
-}
-li.footerSocial {
-  position: relative;
-  display: inline-block;
-  padding: 0;
-  padding-left: 2%;
-  padding-right: 2%;
-  font-size: x-large;
-}
-.footerSocial > a {
-  color: var(--s);
-}
-.footerSocial > a:hover {
-  color: var(--s);
-}
-.footerSocial > a::before {
-  background-color: var(--s);
-}
-.footerLegal {
-  font-family: "Cutive Mono", monospace;
-  text-align: center;
-  padding-bottom: 3vh;
-  font-size: x-small;
-}
-
-.separator {
-  z-index: -1;
-  height: 15vh;
-  margin: auto;
-  text-align: center;
-}
-
-@keyframes typing {
-  0% {
-    width: 0%;
-  }
-  30% {
-    width: 35%;
-  }
-  50% {
-    width: 35%;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes blink-cursor {
-  from,
   to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--p);
+    stroke-dashoffset: 0;
   }
 }
 
-@keyframes rotate-last {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, 50px, 0);
+@keyframes erase {
+  from {
+    stroke-dashoffset: 0;
   }
-
-  50%,
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
+  to {
+    stroke-dashoffset: var(--path-length);
   }
 }
 
-@keyframes fadeIn {
+@keyframes expand {
   0% {
-    opacity: 0;
+    stroke-width: 5rem;
   }
   100% {
-    opacity: 1;
-  }
-}
-@media only screen and (min-width: 720px) {
-  .subWorksItem {
-    width: 33vw;
-    max-width: 565px;
-    height: 470px;
-    display: inline-flex;
-    flex-direction: column;
-  }
-  .subWorksItem p {
-    flex: 1 1 auto;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .worksItem {
-    display: inline-flex;
-    padding-bottom: 3vh;
-  }
-  .worksItem:nth-of-type(odd) {
-    text-align: left;
-  }
-  .worksContent {
-    align-items: center;
-    display: flex;
-    padding: 1em;
+    stroke-width: 65rem;
   }
 }
 
-@media only screen and (min-width: 767px) {
-  .container {
-    font-size: 3rem;
-    width: 725.5px;
+@keyframes retract {
+  0% {
+    stroke-width: 65rem;
   }
-  .carousel-content {
-    font-size: 2rem;
+  100% {
+    stroke-width: 5rem;
   }
-  h1 {
-    height: 5.3rem;
+}
+
+path {
+  stroke-dasharray: var(--path-length);
+}
+
+.landing text {
+  text-anchor: middle;
+  alignment-baseline: middle;
+}
+
+.about path {
+  stroke-width: 80%;
+}
+
+#profile-overlay {
+  opacity: 0.5; /* Set the initial opacity to the desired level */
+  transition: opacity 0.3s ease; /* Smooth transition for the opacity change */
+}
+
+#profile-overlay:hover, #about-border-image:hover ~ #profile-overlay, #about-profile-image:hover ~ #profile-overlay {
+  opacity: 0; /* The overlay disappears when the image is hovered over */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .landing.in-view path {
+    animation: draw 2.75s forwards;
+    stroke-dashoffset: var(--path-length);
   }
-  .sticky ~ * {
-    padding-top: 80px;
+  .transition.in-view path {
+    animation: draw 0.40s forwards;
+    stroke-dashoffset: var(--path-length);
+  }
+  .about.in-view path {
+    stroke-width: 5rem;
+    animation: draw 0.5s forwards, expand 0.75s forwards linear;
+    animation-delay: 0.0s, 0.5s;
+    stroke-dashoffset: var(--path-length);
+  }
+  .about.projects-in-view path {
+    animation: retract 0.5s;
+    stroke-dashoffset: 0;
+  }
+  .about.in-view.projects-in-view path#about-mask-path {
+    animation-delay: 0s;
+  }
+  .about.in-view.projects-in-view path#about-red-path {
+    animation-delay: 0s;
+  }
+
+  .about.in-view path#about-mask-path {
+    animation-delay: 0.5s;
+  }
+
+  .projects.in-view path {
+    animation: draw 0.5s forwards, expand 0.75s forwards linear;
+    animation-delay: 0.4s, 0.9s;
+    stroke-dashoffset: var(--path-length);
   }
 }
