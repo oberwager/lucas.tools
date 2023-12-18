@@ -1,10 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <link rel="canonical" href="https://lucas.tools" />
     <title>Lucas Oberwager | Back-End Developer</title>
-    <meta name="description" content="Back-End Developer, Co-Founder of Ecobux.org, and Computer Science student at Northeastern. Explore my projects and connect with me!" />
+    <meta
+      name="description"
+      content="Back-End Developer, Co-Founder of Ecobux.org, and Computer Science student at Northeastern. Explore my projects and connect with me!"
+    />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -18,14 +21,28 @@
     <link rel="manifest" href="/manifest.json" />
 
     <meta property="og:title" content="Lucas Oberwager" />
-    <meta property="og:description" content="Back-End Developer, Co-Founder of Ecobux.org, and Computer Science student at Northeastern. Explore my projects and connect with me!" />
+    <meta
+      property="og:description"
+      content="Back-End Developer, Co-Founder of Ecobux.org, and Computer Science student at Northeastern. Explore my projects and connect with me!"
+    />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lucas.tools" />
     <meta property="og:image" content="https://lucas.tools/logo.png" />
 
-    <link rel="preload" href="fonts/EgyptianEF-BoldExtended.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/HelveticaNeue-Medium.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/SpecialElite-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link
+      rel="preload"
+      href="fonts/EgyptianEF-BoldExtended.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/SpecialElite-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
     <link
       rel="preload"
@@ -39,6 +56,7 @@
         --p: #000;
         --s: #f7f7f7;
         --r: #691109;
+        --l: #ea9101;
       }
       * {
         box-sizing: border-box;
@@ -53,16 +71,18 @@
         scroll-snap-type: mandatory;
         scroll-snap-points-y: repeat(100vh);
         scroll-snap-type: y mandatory;
+        overflow-x: hidden;
       }
       section {
         height: 101vh;
         scroll-snap-align: start;
         text-align: center;
       }
-      .transition { 
+      .transition {
         height: 50vh;
       }
-      section svg, .transition svg {
+      section svg,
+      .transition svg {
         text-align: center;
         color: white;
         width: 100%;
@@ -70,11 +90,8 @@
         left: 0;
         font-size: calc(1rem + 3vw);
       }
-      text {
-        font-family: 'Helvetica Neue';
-      }
       .h1 {
-        font-family: 'EgyptianEF';
+        font-family: "EgyptianEF";
         font-weight: bold;
       }
     </style>
@@ -84,45 +101,287 @@
       <svg id="landing-svg">
         <defs>
           <mask id="landing-text-mask">
-            <path id="landing-mask-path" d="" fill="none" stroke="white" stroke-width="3rem"/>
+            <path id="landing-mask-path" d="" fill="none" stroke="white" stroke-width="3rem" />
           </mask>
         </defs>
-        <path id="landing-red-path" fill="none" stroke="var(--r)" stroke-width="3rem"/>
-        <rect id="landing-text-box" fill="var(--p)"/>
-        <text class="h1" id="landing-text" x="50%" y="50" text-anchor="middle" fill="var(--s)" font-size="2rem" mask="url(#landing-text-mask)">
+        <path id="landing-red-path" fill="none" stroke="var(--r)" stroke-width="3rem" />
+        <rect id="landing-text-box" fill="var(--p)" />
+        <text
+          class="h1"
+          id="landing-text"
+          x="50%"
+          y="50"
+          text-anchor="middle"
+          fill="var(--s)"
+          font-size="2rem"
+          mask="url(#landing-text-mask)"
+        >
           Lucas Oberwager
         </text>
       </svg>
     </section>
     <div class="transition">
       <svg id="transition-svg">
-        <path id="transition-red-path" fill="none" stroke="var(--r)" stroke-width="5rem"/>
+        <path id="transition-red-path" fill="none" stroke="var(--r)" stroke-width="5rem" />
       </svg>
     </div>
     <section class="about">
-      <svg id="about-svg">
-        <defs>
-          <mask id="about-text-mask">
-            <path id="about-mask-path" d="" fill="none" stroke="white" stroke-width="3rem"/>
-          </mask>
-        </defs>
-        <path id="about-red-path" d="" fill="none" stroke="var(--r)" />
-        <text class="h1" id="about-text" x="50%" y="15%" text-anchor="middle" fill="var(--s)" font-size="2rem" mask="url(#about-text-mask)">
-          About Me
-        </text>
+      <div class="about-curtain about-curtain-top"></div>
+      <div class="about-curtain about-curtain-left"></div>
+      <div class="about-curtain about-curtain-right"></div>
+      <h1 class="about-text">About Me</h1>
+      <div class="about-section">
+        <div class="about-description">
+          <p>Back-End Developer,</p>
+          <p>Co-Founder of <a href="https://ecobux.org">Ecobux.org</a>,</p>
+          <p>Computer Science student at <a>Northeastern</a></p>
+        </div>
 
-        <text id="about-description" x="0%" y="30%" text-anchor="end" fill="var(--s)" font-size="1rem" mask="url(#about-text-mask)">
-          <tspan x="48%" dy="1.2em">I'm a Back-End Developer,</tspan>
-          <tspan x="48%" dy="1.2em">Co-Founder of Ecobux.org,</tspan>
-          <tspan x="48%" dy="1.2em">and Computer Science student</tspan>
-          <tspan x="48%" dy="1.2em">at Northeastern.</tspan>
-        </text>
+        <div class="about-image">
+          <img id="about-profile-image" src="/images/profile.png" alt="Profile Image" />
+          <img id="about-border-image" src="/images/border.png" alt="Border Image" />
+        </div>
+      </div>
+      <div class="about-form">
+        <div class="about-item">
+          <p class="about-label">Name:</p>
+          <p class="about-value">Lucas Oberwager</p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Email:</p>
+          <p class="about-value">
+            <a href="mailto:hello@lucas.tools">hello@lucas.tools</a>
+          </p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Location:</p>
+          <p class="about-value">Boston, MA</p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Previous Role:</p>
+          <p class="about-value">Software Engineer at <a href="https://tilia.io">Tilia.io</a></p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Education:</p>
+          <p class="about-value">Northeastern University</p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Skills:</p>
+          <p class="about-value">
+            Python, Golang, C, Solidity, JavaScript, Git, Docker, Linux, MacOS
+          </p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Specialization:</p>
+          <p class="about-value">Back-End Development</p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Currently Reading:</p>
+          <p class="about-value" id="cur-book">The Lord of the Rings</p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Last Known Project:</p>
+          <p class="about-value" id="cur-repo">
+            <a href="https://github.com/Watt3r/wotd">Watt3r/wotd</a>
+          </p>
+        </div>
+        <div class="about-item">
+          <p class="about-label">Listening to:</p>
+          <p class="about-value" id="cur-song"><a>Calhoun Satan</a></p>
+        </div>
+        <div class="about-item span-two">
+          <p class="about-label">Other Notes:</p>
+          <p class="about-value">
+            Messing around with a homelab, <a href="https://atlas.lucas.tools">atlas.lucas.tools</a>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="projects">
+      <div class="projects-curtain projects-curtain-top"></div>
+      <div class="projects-curtain projects-curtain-middle"></div>
+      <div class="projects-curtain projects-curtain-bottom"></div>
+      <div class="projects-container">
+        <div class="projects-ribbon">
+          <h1>Projects</h1>
+          <!--
+                        <div class="projects-ribbon-border">
+                        <img src="images/film_border.png" alt="Border Image" />
+                        </div>
+                    -->
+          <div class="projects-list">
+            <div class="projects-item">
+              <a href="https://ecobux.org">
+                <img
+                  loading="lazy"
+                  src="images/ecobux_gf09pg_c_scale,w_1400.png"
+                  sizes="(max-width: 1400px) 93vw, 1400px"
+                  srcset="
+                    images/ecobux_gf09pg_c_scale,w_200.png   200w,
+                    images/ecobux_gf09pg_c_scale,w_341.png   341w,
+                    images/ecobux_gf09pg_c_scale,w_448.png   448w,
+                    images/ecobux_gf09pg_c_scale,w_537.png   537w,
+                    images/ecobux_gf09pg_c_scale,w_616.png   616w,
+                    images/ecobux_gf09pg_c_scale,w_689.png   689w,
+                    images/ecobux_gf09pg_c_scale,w_761.png   761w,
+                    images/ecobux_gf09pg_c_scale,w_822.png   822w,
+                    images/ecobux_gf09pg_c_scale,w_889.png   889w,
+                    images/ecobux_gf09pg_c_scale,w_943.png   943w,
+                    images/ecobux_gf09pg_c_scale,w_997.png   997w,
+                    images/ecobux_gf09pg_c_scale,w_1042.png 1042w,
+                    images/ecobux_gf09pg_c_scale,w_1100.png 1100w,
+                    images/ecobux_gf09pg_c_scale,w_1151.png 1151w,
+                    images/ecobux_gf09pg_c_scale,w_1201.png 1201w,
+                    images/ecobux_gf09pg_c_scale,w_1249.png 1249w,
+                    images/ecobux_gf09pg_c_scale,w_1298.png 1298w,
+                    images/ecobux_gf09pg_c_scale,w_1349.png 1349w,
+                    images/ecobux_gf09pg_c_scale,w_1382.png 1382w,
+                    images/ecobux_gf09pg_c_scale,w_1400.png 1400w
+                  "
+                  src="ecobux_gf09pg_c_scale,w_1400.png"
+                  alt="Ecobux landing page image"
+                />
+              </a>
+              <p class="projects-description">
+                A charity organization dedicated to helping charities from around the world accrue
+                payments through crowdfunding.
+              </p>
+              <ul class="projects-tech">
+                <li>Solidity</li>
+                <li>JavaScript</li>
+                <li>Jest</li>
+              </ul>
+              <ul class="projects-links">
+                <li>
+                  <a href="http://github.com/Ecobux-org/ecobux"> Github </a>
+                </li>
+                <li>
+                  <a href="https://ecobux.org"> Website </a>
+                </li>
+              </ul>
+            </div>
+            <div class="projects-item">
+              <a href="https://trivio.me">
+                <img
+                  sizes="(max-width: 1400px) 100vw, 1400px"
+                  loading="lazy"
+                  srcset="
+                    images/trivio_kipvfo_c_scale,w_200.png   200w,
+                    images/trivio_kipvfo_c_scale,w_472.png   472w,
+                    images/trivio_kipvfo_c_scale,w_668.png   668w,
+                    images/trivio_kipvfo_c_scale,w_821.png   821w,
+                    images/trivio_kipvfo_c_scale,w_958.png   958w,
+                    images/trivio_kipvfo_c_scale,w_1077.png 1077w,
+                    images/trivio_kipvfo_c_scale,w_1170.png 1170w,
+                    images/trivio_kipvfo_c_scale,w_1290.png 1290w,
+                    images/trivio_kipvfo_c_scale,w_1400.png 1400w
+                  "
+                  src="images/trivio_kipvfo_c_scale,w_1400.png"
+                  alt="trivio.me Landing page"
+                />
+              </a>
+              <p class="projects-description">
+                Trivio is a fun Spotify trivia game, where your listening habits are the questions!
+                Login through Spotify and play with friends.
+              </p>
+              <ul class="projects-tech">
+                <li>Node.js</li>
+                <li>Express</li>
+                <li>Spotify Web API</li>
+              </ul>
+              <ul class="projects-links">
+                <li>
+                  <a href="https://github.com/Watt3r/trivio"> Github </a>
+                </li>
+                <li>
+                  <a href="https://trivio.me"> Website </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <div class="contact-curtain"></div>
+      <div class="video-curtain">
+        <video id="transition-video" autoplay muted playsinline>
+          <source src="images/film_melt.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="contact-container">
+        <h1 class="contact-text">Well! What are we waiting for!</h1>
+        <div class="contact-section">
+          <a class="contact-link" href="mailto:hello@lucas.tools">Let's Get in Touch.</a>
+        </div>
+      </div>
+      <footer aria-label="Footer">
+        <small>© 2023 Lucas Oberwager</small>
+        <small
+          >All code is open source and available on
+          <a href="https://github.com/Watt3r/lucas.tools">Github</a></small
+        >
 
-        <image id="about-profile-image" xlink:href="/images/profile.png" x="50%" y="20%" height="25%" mask="url(#about-text-mask)" />
-        <image id="about-border-image" xlink:href="/images/border.png" x="50%" y="20%" height="25%" mask="url(#about-text-mask)"/>
-        <rect id="profile-overlay" x="50%" y="20%" width="25%" height="25%" fill="var(--r)" mask="url(#about-text-mask)"/>
-
-      </svg>
+        <ul class="footer-social">
+          <li>
+            <a
+              class="social-icon"
+              href="https://linkedin.com/in/lucasoberwager"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2c3e50"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"
+                />
+                <path d="M8 11l0 5" />
+                <path d="M8 8l0 .01" />
+                <path d="M12 16l0 -5" />
+                <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              class="social-icon"
+              href="https://www.instagram.com/lucas.oberwager/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="#2c3e50"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
+                />
+                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                <path d="M16.5 7.5l0 .01" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </footer>
     </section>
     <script src="index.js"></script>
   </body>
