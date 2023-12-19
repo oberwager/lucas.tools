@@ -38,7 +38,7 @@ function adjustLandingPath() {
   text.setAttribute("y", startY);
 
   textBox.setAttribute("width", text.getBBox().width * 1.15);
-  textBox.setAttribute("height", text.getBBox().height * 1.75);
+  textBox.setAttribute("height", `calc(${maskPath.getAttribute("stroke-width")} + 2px)`);
   textBox.setAttribute("x", width / 2 - textBox.getBBox().width / 2);
   textBox.setAttribute("y", startY - textBox.getBBox().height / 2);
 }
@@ -47,10 +47,13 @@ function adjustLandingPath() {
  * Adjusts the SVG transition paths to fit the screen.
  */
 function adjustLandingTransitionPath() {
+  const landingSvg = document.getElementById("landing-svg");
   const svg = document.getElementById("transition-svg");
   const path = document.getElementById("transition-red-path");
   const width = svg.clientWidth;
   const height = svg.clientHeight;
+
+  const landingSvgHeight = landingSvg.clientHeight;
 
   // Calculate the path start and end points based on the SVG dimensions
   const startX = width * 0.86;
@@ -60,21 +63,30 @@ function adjustLandingTransitionPath() {
   const endX = width * 0.5;
   const endY = height * 0.15;
 
-  // M 852 49 L 805 183 L 624 49 L 629 676
   const pathData = `M${startX},${startY} L${bendX},${bendY} L${endX},${endY} L${endX},${height}`;
 
-  // Update the path and mask-path 'd' attribute
-  path.setAttribute("d", pathData);
+  const strokeAngle = Math.abs(Math.atan2(landingSvgHeight * 0.7, bendX));
+  const stroke2Angle = Math.abs(Math.atan2(startY - bendY, startX - bendX));
 
+  const strokeWidth = 3 / Math.sin(strokeAngle);
+  const strokeWidth2 = strokeWidth * Math.sin(stroke2Angle);
+
+  path.setAttribute("stroke-width", strokeWidth2 + "rem");
+  path.setAttribute("d", pathData);
   svg.style.setProperty("--path-length", path.getTotalLength());
 }
 
 // Listen for page load and resize events
-if ("fonts" in document) {
-  document.fonts.load("1em EgyptianEF").then(function () {
+const fontObserver = new FontFaceObserver("EgyptianEF");
+
+fontObserver
+  .load()
+  .then(function () {
     adjustPath();
+  })
+  .catch(function (e) {
+    console.error("EgyptianEF font failed to load", e);
   });
-}
 window.addEventListener("resize", adjustPath);
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -111,8 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Start observing the video element
   observer.observe(video);
-
-  adjustPath();
 });
 
 // Listen for scroll events
@@ -221,7 +231,7 @@ window.onload = function () {
   const xhr4 = new XMLHttpRequest();
   xhr4.open(
     "GET",
-    "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucasobe&api_key=1de06f62b7d8a0300bec8ed5b05598e8&format=json&limit=1",
+    "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucasobe&api_key=1de06f62b7d8a0300bec8ed5b05598e8&format=json&limit=1",
     true,
   );
   xhr4.onload = function () {

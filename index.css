@@ -113,7 +113,8 @@ path {
   stroke-dasharray: var(--path-length);
 }
 
-.landing text {
+#landing-text {
+  font-size: 2rem;
   text-anchor: middle;
   alignment-baseline: middle;
 }
@@ -360,6 +361,18 @@ section.contact {
   height: 100vh;
 }
 
+.video-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10; /* Adjust as needed */
+  pointer-events: none;
+}
+
+.video-curtain video {
+  display: none;
+}
+
 .contact-container {
   left: 50%;
   max-width: 75vw;
@@ -510,19 +523,40 @@ footer a {
     animation-delay: 0.7s;
   }
 
-  .video-curtain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10; /* Adjust as needed */
-    pointer-events: none;
-  }
-
   .video-curtain video {
+    display: block;
     width: 100vw;
     height: 100vh;
     object-fit: fill;
     background: transparent;
     pointer-events: none;
+  }
+}
+
+@media (max-width: 600px) {
+  a {
+    background-image: none;
+  }
+  #landing-text {
+    font-size: 1rem;
+  }
+  .about {
+    height: fit-content;
+  }
+  .about h1 {
+    font-size: 2rem;
+  }
+  .about-section {
+    width: 100%;
+    height: fit-content;
+  }
+  .about-description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+  .about-form {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: 1fr;
   }
 }
