@@ -153,7 +153,8 @@ path {
   max-height: 100%;
 }
 
-a, .redacted {
+a,
+.redacted {
   display: inline-block;
   font-family: "Special Elite", typewriter;
   background-image: url("images/redact.png");
@@ -165,10 +166,12 @@ a, .redacted {
   background-position: center;
   transition: color 0.2s ease-in-out;
 }
-a:hover, .redacted:hover {
+a:hover,
+.redacted:hover {
   color: var(--l);
 }
-a::selection, .redacted::selection{
+a::selection,
+.redacted::selection {
   background-color: var(--p);
   color: var(--l);
 }
@@ -507,7 +510,8 @@ footer a {
 }
 
 @media (max-width: 600px) {
-  a, .redacted {
+  a,
+  .redacted {
     background-image: none;
   }
   #landing-text {
@@ -536,8 +540,8 @@ footer a {
   .projects {
     height: fit-content;
   }
-  .projects-ribbon h1{
-      font-size: 2rem;
+  .projects-ribbon h1 {
+    font-size: 2rem;
   }
   .projects-list {
     width: 100%;
@@ -549,5 +553,4 @@ footer a {
   .contact-container h1 {
     font-size: 2rem;
   }
-
 }

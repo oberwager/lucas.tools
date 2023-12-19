@@ -1,3 +1,4 @@
+const REM = parseFloat(getComputedStyle(document.documentElement).fontSize);
 /**
  * Adjusts the SVG paths to fit the screen.
  */
@@ -38,7 +39,7 @@ function adjustLandingPath() {
   text.setAttribute("y", startY);
 
   textBox.setAttribute("width", text.getBBox().width * 1.15);
-  textBox.setAttribute("height", `calc(${maskPath.getAttribute("stroke-width")} + 2px)`);
+  textBox.setAttribute("height", REM*parseFloat(maskPath.getAttribute("stroke-width"))+2);
   textBox.setAttribute("x", width / 2 - textBox.getBBox().width / 2);
   textBox.setAttribute("y", startY - textBox.getBBox().height / 2);
 }
@@ -78,7 +79,7 @@ function adjustLandingTransitionPath() {
   svg.style.setProperty("--path-length", path.getTotalLength());
 
   // Make the about section the same width as the path
-  aboutSection.style.setProperty('--width', `${strokeWidth2}rem`);
+  aboutSection.style.setProperty("--width", `${strokeWidth2}rem`);
 }
 
 // Listen for page load and resize events
@@ -94,10 +95,9 @@ fontObserver
   });
 window.addEventListener("resize", adjustPath);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll("a.redacted-link");
+  const links = document.querySelectorAll("a");
 
-  links.forEach((link) => {
+  links.forEach(link => {
     // Randomize the size of the background
     const scale = 1 + Math.random() * 0.5;
     link.style.backgroundSize = `${scale * 100}% ${scale * 100}%`;
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const video = document.getElementById("transition-video");
 
-  const observer = new IntersectionObserver(
+  const videoObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -127,8 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   // Start observing the video element
-  observer.observe(video);
-});
+  videoObserver.observe(video);
 
 // Listen for scroll events
 const observer = new IntersectionObserver(
@@ -163,9 +162,7 @@ observer.observe(document.querySelector(".projects"));
  * @return {string} - The string transformed to title case.
  */
 function titleCase(s) {
-  return s.replace(/\w\S*/g, function (t) {
-    return t.charAt(0).toUpperCase() + t.substr(1).toLowerCase();
-  });
+  return s.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 /**
  * Calculates the time elapsed since a given date and returns it in words.
@@ -195,65 +192,67 @@ function timeSince(date) {
   }
 }
 
-window.onload = function () {
-  // Update currently reading book
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://openlibrary.org/people/lucasobe/books/currently-reading.json", true);
-  xhr.onload = function () {
-    if (xhr.status >= 200 && xhr.status < 400) {
-      const data = JSON.parse(xhr.responseText);
-      document.getElementById("cur-book").innerHTML = data.reading_log_entries
-        .map(function (e) {
-          return `<a href="https://openlibrary.org${e.work.key}">${titleCase(
-            e.work.title,
-          )}</a> by ${titleCase(e.work.author_names[0])}`;
-        })
-        .join(" and ");
-    }
-  };
-  xhr.send();
-  // Update last updated repo
-  const xhr2 = new XMLHttpRequest();
-  xhr2.open("GET", "https://api.github.com/users/Watt3r/events?per_page=1", true);
-  xhr2.onload = function () {
-    if (xhr2.status >= 200 && xhr2.status < 400) {
-      const data = JSON.parse(xhr2.responseText);
-      document.getElementById("cur-repo").innerHTML = `<a href="https://github.com/${
-        data[0].repo.name
-      }">${data[0].repo.name}</a>, ${timeSince(new Date(data[0].created_at))} ago`;
-      const xhr3 = new XMLHttpRequest();
-      xhr3.open("GET", `https://api.github.com/repos/${data[0].repo.name}`, true);
-      xhr3.onload = function () {
-        const data2 = JSON.parse(xhr3.responseText);
-        if (data2.homepage) {
-          document.getElementById("cur-repo").firstChild.setAttribute("href", data2.homepage);
-        }
-      };
-      xhr3.send();
-    }
-  };
-  xhr2.send();
-  const xhr4 = new XMLHttpRequest();
-  xhr4.open(
-    "GET",
-    "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucasobe&api_key=1de06f62b7d8a0300bec8ed5b05598e8&format=json&limit=1",
-    true,
-  );
-  xhr4.onload = function () {
-    if (xhr4.status < 200 || xhr4.status > 400) {
-      return;
-    }
-    const data = JSON.parse(xhr4.responseText);
-    const firstTrack = data.recenttracks.track[0]; // Access the first track
-    const artistName = firstTrack.artist["#text"]; // Extract artist name
-    const songTitle = firstTrack.name; // Extract song title
-    // Not sure how to use this yet
-    // No "time since" for now
-    // const currentlyPlaying = firstTrack["@attr"] && firstTrack["@attr"].nowplaying;
-    const songUrl = firstTrack.url; // Extract song URL
+/**
+ * Fetches data from a specified URL using the Fetch API.
+ * @param {string} url - The URL to fetch data from.
+ * @return {Promise<Object>} - A promise that resolves to the JSON response.
+ * @throws {Error} - Throws an error if the HTTP request fails.
+ */
+async function fetchData(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+  return await response.json();
+}
 
-    document.getElementById("cur-song").innerHTML =
-      `<a href="${songUrl}">${songTitle}</a> by ${artistName}`;
-  };
-  xhr4.send();
+/**
+ * Loads the currently reading books from Open Library and displays them. 
+ */
+async function loadCurrentlyReading() {
+  try {
+    const data = await fetchData("https://openlibrary.org/people/lucasobe/books/currently-reading.json");
+    document.getElementById("cur-book").innerHTML = data.reading_log_entries
+      .map(e => `<a href="https://openlibrary.org${e.work.key}">${titleCase(e.work.title)}</a> by ${titleCase(e.work.author_names[0])}`)
+      .join(" and ");
+  } catch (error) {
+    console.error("Failed to load currently reading books:", error);
+  }
+}
+
+
+/**
+ * Loads the last updated repo from GitHub and displays it.
+ */
+async function loadLastUpdatedRepo() {
+  try {
+    const events = await fetchData("https://api.github.com/users/Watt3r/events?per_page=1");
+    const repoName = events[0].repo.name;
+    const repoDetails = await fetchData(`https://api.github.com/repos/${repoName}`);
+    const homepage = repoDetails.homepage ? repoDetails.homepage : `https://github.com/${repoName}`;
+    document.getElementById("cur-repo").innerHTML = `<a href="${homepage}">${repoName}</a>, ${timeSince(new Date(events[0].created_at))} ago`;
+  } catch (error) {
+    console.error("Failed to load last updated repo:", error);
+  }
+}
+
+/**
+ * Loads the most recent track from Last.fm and displays it.
+ */
+async function loadRecentTrack() {
+  try {
+    const data = await fetchData("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucasobe&api_key=1de06f62b7d8a0300bec8ed5b05598e8&format=json&limit=1");
+    const track = data.recenttracks.track[0];
+    document.getElementById("cur-song").innerHTML = `<a href="${track.url}">${track.name}</a> by ${track.artist["#text"]}`;
+  } catch (error) {
+    console.error("Failed to load recent track:", error);
+  }
+}
+
+// Call each function independently
+window.onload = async () => {
+  loadCurrentlyReading();
+  loadLastUpdatedRepo();
+  loadRecentTrack();
 };
+
