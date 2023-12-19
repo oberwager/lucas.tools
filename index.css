@@ -165,10 +165,10 @@ a, .redacted {
   background-position: center;
   transition: color 0.2s ease-in-out;
 }
-a:hover {
+a:hover, .redacted:hover {
   color: var(--l);
 }
-a::selection {
+a::selection, .redacted::selection{
   background-color: var(--p);
   color: var(--l);
 }
@@ -416,13 +416,13 @@ footer a {
     background-color: var(--p);
   }
   .about-curtain-top {
-    left: calc(50% - 2.5rem);
-    width: 5rem;
+    left: calc(50% - var(--width) / 2);
+    width: var(--width);
   }
 
   .about-curtain-left,
   .about-curtain-right {
-    width: calc(50% - 2.5rem);
+    width: calc(50% - var(--width) / 2);
   }
 
   .about-curtain-left {
