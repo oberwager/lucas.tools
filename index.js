@@ -54,7 +54,7 @@ function adjustLandingTransitionPath() {
   const width = svg.clientWidth;
   const height = svg.clientHeight;
 
-  const aboutSection = document.querySelector(".about");
+  const root = document.documentElement;
 
   const landingSvgHeight = landingSvg.clientHeight;
 
@@ -79,7 +79,7 @@ function adjustLandingTransitionPath() {
   svg.style.setProperty("--path-length", path.getTotalLength());
 
   // Make the about section the same width as the path
-  aboutSection.style.setProperty("--width", `${strokeWidth2}rem`);
+  root.style.setProperty("--path-width", `${strokeWidth2}rem`);
 }
 
 // Listen for page load and resize events

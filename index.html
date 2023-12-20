@@ -98,10 +98,30 @@
         font-family: "EgyptianEF";
         font-weight: bold;
       }
+      .landing-nojs {
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+
+          width: 100%;
+
+        height: fit-content;
+        background-color: var(--r);
+        color: var(--s);
+        font-family: "Special Elite";
+      }
     </style>
   </head>
   <body>
     <section class="landing">
+      <noscript>
+            <div class="landing-nojs">
+          <h1 class="h1">Lucas Oberwager</h1>
+          <p>This site works best with JavaScript enabled.</p>
+          </div>
+      </noscript>
       <svg id="landing-svg">
         <defs>
           <mask id="landing-text-mask">
@@ -143,7 +163,7 @@
 
         <div class="about-image">
           <img id="about-profile-image" src="/images/profile.png" alt="Profile Image" loading="lazy" />
-          <img id="about-border-image" src="/images/border.png" alt="Border Image" loading="lazy" />
+          <img id="about-border-image" src="/images/border.png" alt="" aria-hidden="true" role="presentation" loading="lazy" />
         </div>
       </div>
       <div class="about-form">
@@ -181,12 +201,12 @@
         </div>
         <div class="about-item">
           <p class="about-label">Currently Reading:</p>
-          <p class="about-value" id="cur-book">The Lord of the Rings</p>
+          <p class="about-value" id="cur-book"><a>Lord of the Rings</a></p>
         </div>
         <div class="about-item">
           <p class="about-label">Last Known Project:</p>
           <p class="about-value" id="cur-repo">
-            <a href="https://github.com/Watt3r/wotd">Watt3r/wotd</a>
+            <a href="https://github.com/Watt3r/wotd">Watt3r/wotd</a>, 4 days ago
           </p>
         </div>
         <div class="about-item">
@@ -307,10 +327,10 @@
       </div>
     </section>
     <section class="contact">
-      <div class="contact-curtain"></div>
       <div class="video-curtain">
         <video id="transition-video" autoplay muted playsinline>
-          <source src="images/film_melt.webm" type="video/webm" />
+          <source src="video/1.mp4" type='video/mp4;codecs=hvc1'>
+          <source src="video/1.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -324,8 +344,10 @@
         <small>© 2023 Lucas Oberwager</small>
         <small
           >All code is open source and available on
-          <a href="https://github.com/Watt3r/lucas.tools">Github</a></small
-        >
+          <a href="https://github.com/Watt3r/lucas.tools">Github</a>
+          <br />
+          Inspired by <a href="https://www.youtube.com/watch?v=VVW2tZILPOc">The Man from U.N.C.L.E.</a>
+        </small>
 
         <ul class="footer-social">
           <li>

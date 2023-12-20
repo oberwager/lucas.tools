@@ -115,7 +115,8 @@ path {
   justify-content: center;
   align-items: start;
   height: 30vh;
-  width: 64rem;
+  max-width: 64rem;
+  width: 100%;
   margin: 0 auto;
   flex-wrap: wrap;
 }
@@ -419,13 +420,13 @@ footer a {
     background-color: var(--p);
   }
   .about-curtain-top {
-    left: calc(50% - var(--width) / 2);
-    width: var(--width);
+    left: calc(50% - var(--path-width) / 2);
+    width: var(--path-width);
   }
 
   .about-curtain-left,
   .about-curtain-right {
-    width: calc(50% - var(--width) / 2);
+    width: calc(50% - var(--path-width) / 2);
   }
 
   .about-curtain-left {
@@ -468,15 +469,15 @@ footer a {
     background-color: var(--p);
   }
   .projects-curtain-middle {
-    top: calc(50% - 2.5rem);
-    height: 2.5rem;
+    top: calc(50% - var(--path-width) / 2);
+    height: var(--path-width);
     width: 100%;
   }
 
   .projects-curtain-top,
   .projects-curtain-bottom {
     width: 100%;
-    height: calc(50% - 2.5rem);
+    height: calc(50% - var(--path-width) / 2);
   }
 
   .projects-curtain-top {
@@ -505,7 +506,6 @@ footer a {
     height: 100vh;
     object-fit: fill;
     background: transparent;
-    pointer-events: none;
   }
 }
 
