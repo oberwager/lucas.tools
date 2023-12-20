@@ -5,11 +5,11 @@
   "repository": "git@github.com:Watt3r/lucas.tools.git",
   "author": "Watt3r <git@lucas.tools>",
   "license": "GPL-3.0-or-later",
-  "dependencies": {
-    "eslint": "^7.22.0",
+  "devDependencies": {
+    "eslint": "^8.56.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^6.11.0",
-    "prettier": "^2.2.1"
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1"
   },
   "scripts": {
     "prettier": "prettier --write ."
