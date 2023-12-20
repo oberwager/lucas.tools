@@ -179,7 +179,7 @@ a,
 .redacted {
   display: inline-block;
   font-family: "Special Elite", typewriter, monospace;
-  background-image: url("images/redact.png");
+  background-image: url("images/redact.webp");
   background-repeat: no-repeat;
   text-decoration: none;
   color: var(--p);
@@ -287,7 +287,7 @@ a::selection,
 .projects-ribbon {
   margin: 0;
   height: 70vh;
-  background-image: url("images/newspaper.png");
+  background-image: url("images/newspaper.webp");
   background-color: var(--r);
   top: 50%;
   transform: translateY(20%);

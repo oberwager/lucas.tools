@@ -160,15 +160,18 @@
           </div>
 
           <div class="about-image">
-            <img
-              id="about-profile-image"
-              src="/images/profile.png"
-              alt="Profile Image"
-              loading="lazy"
-            />
+              <img
+                      sizes="(max-width: 1400px) 100vw, 1400px"
+                      srcset="
+                              images/profile_200.webp 200w,
+                              images/profile_849.webp 849w,
+                              images/profile_1275.webp 1275w,
+                              images/profile_1400.webp 1400w"
+                      src="images/profile_1400.webp"
+                      alt="Profile Image">
             <img
               id="about-border-image"
-              src="/images/border.png"
+              src="/images/border.webp"
               alt=""
               aria-hidden="true"
               role="presentation"
@@ -242,7 +245,7 @@
           <h1>Projects</h1>
           <!--
                         <div class="projects-ribbon-border">
-                        <img src="images/film_border.png" alt="Border Image" />
+                        <img src="images/film_border.webp" alt="Border Image" />
                         </div>
                     -->
           <div class="projects-list">
@@ -250,31 +253,31 @@
               <a href="https://ecobux.org">
                 <img
                   loading="lazy"
-                  src="images/ecobux_gf09pg_c_scale,w_1400.png"
+                  src="images/ecobux_gf09pg_c_scale,w_1400.webp"
                   sizes="(max-width: 1400px) 93vw, 1400px"
                   srcset="
-                    images/ecobux_gf09pg_c_scale,w_200.png   200w,
-                    images/ecobux_gf09pg_c_scale,w_341.png   341w,
-                    images/ecobux_gf09pg_c_scale,w_448.png   448w,
-                    images/ecobux_gf09pg_c_scale,w_537.png   537w,
-                    images/ecobux_gf09pg_c_scale,w_616.png   616w,
-                    images/ecobux_gf09pg_c_scale,w_689.png   689w,
-                    images/ecobux_gf09pg_c_scale,w_761.png   761w,
-                    images/ecobux_gf09pg_c_scale,w_822.png   822w,
-                    images/ecobux_gf09pg_c_scale,w_889.png   889w,
-                    images/ecobux_gf09pg_c_scale,w_943.png   943w,
-                    images/ecobux_gf09pg_c_scale,w_997.png   997w,
-                    images/ecobux_gf09pg_c_scale,w_1042.png 1042w,
-                    images/ecobux_gf09pg_c_scale,w_1100.png 1100w,
-                    images/ecobux_gf09pg_c_scale,w_1151.png 1151w,
-                    images/ecobux_gf09pg_c_scale,w_1201.png 1201w,
-                    images/ecobux_gf09pg_c_scale,w_1249.png 1249w,
-                    images/ecobux_gf09pg_c_scale,w_1298.png 1298w,
-                    images/ecobux_gf09pg_c_scale,w_1349.png 1349w,
-                    images/ecobux_gf09pg_c_scale,w_1382.png 1382w,
-                    images/ecobux_gf09pg_c_scale,w_1400.png 1400w
+                    images/ecobux_200.webp   200w,
+                    images/ecobux_341.webp   341w,
+                    images/ecobux_448.webp   448w,
+                    images/ecobux_537.webp   537w,
+                    images/ecobux_616.webp   616w,
+                    images/ecobux_689.webp   689w,
+                    images/ecobux_761.webp   761w,
+                    images/ecobux_822.webp   822w,
+                    images/ecobux_889.webp   889w,
+                    images/ecobux_943.webp   943w,
+                    images/ecobux_997.webp   997w,
+                    images/ecobux_1042.webp 1042w,
+                    images/ecobux_1100.webp 1100w,
+                    images/ecobux_1151.webp 1151w,
+                    images/ecobux_1201.webp 1201w,
+                    images/ecobux_1249.webp 1249w,
+                    images/ecobux_1298.webp 1298w,
+                    images/ecobux_1349.webp 1349w,
+                    images/ecobux_1382.webp 1382w,
+                    images/ecobux_1400.webp 1400w
                   "
-                  src="ecobux_gf09pg_c_scale,w_1400.png"
+                  src="ecobux_1400.webp"
                   alt="Ecobux landing page image"
                 />
               </a>
@@ -302,17 +305,17 @@
                   sizes="(max-width: 1400px) 100vw, 1400px"
                   loading="lazy"
                   srcset="
-                    images/trivio_kipvfo_c_scale,w_200.png   200w,
-                    images/trivio_kipvfo_c_scale,w_472.png   472w,
-                    images/trivio_kipvfo_c_scale,w_668.png   668w,
-                    images/trivio_kipvfo_c_scale,w_821.png   821w,
-                    images/trivio_kipvfo_c_scale,w_958.png   958w,
-                    images/trivio_kipvfo_c_scale,w_1077.png 1077w,
-                    images/trivio_kipvfo_c_scale,w_1170.png 1170w,
-                    images/trivio_kipvfo_c_scale,w_1290.png 1290w,
-                    images/trivio_kipvfo_c_scale,w_1400.png 1400w
+                    images/trivio_200.webp   200w,
+                    images/trivio_472.webp   472w,
+                    images/trivio_668.webp   668w,
+                    images/trivio_821.webp   821w,
+                    images/trivio_958.webp   958w,
+                    images/trivio_1077.webp 1077w,
+                    images/trivio_1170.webp 1170w,
+                    images/trivio_1290.webp 1290w,
+                    images/trivio_1400.webp 1400w
                   "
-                  src="images/trivio_kipvfo_c_scale,w_1400.png"
+                  src="images/trivio_1400.webp"
                   alt="trivio.me Landing page"
                 />
               </a>
