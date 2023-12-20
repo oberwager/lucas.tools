@@ -13,7 +13,7 @@
 
     <meta name="msapplication-TileColor" content="#f7f7f7" />
     <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
-    <meta name="theme-color" content="#f7f7f7" />
+    <meta name="theme-color" content="#000000" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -87,25 +87,21 @@
       }
       section svg,
       .transition svg {
-        text-align: center;
-        color: var(--s);
         width: 100%;
         height: 100%;
-        left: 0;
-        font-size: calc(1rem + 3vw);
       }
       .h1 {
         font-family: "EgyptianEF";
         font-weight: bold;
       }
       .landing-nojs {
-          margin: 0;
-          position: absolute;
-          top: 50%;
-          -ms-transform: translateY(-50%);
-          transform: translateY(-50%);
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
 
-          width: 100%;
+        width: 100%;
 
         height: fit-content;
         background-color: var(--r);
@@ -115,12 +111,13 @@
     </style>
   </head>
   <body>
+    <div class="vignette"></div>
     <section class="landing">
       <noscript>
-            <div class="landing-nojs">
+        <div class="landing-nojs">
           <h1 class="h1">Lucas Oberwager</h1>
           <p>This site works best with JavaScript enabled.</p>
-          </div>
+        </div>
       </noscript>
       <svg id="landing-svg">
         <defs>
@@ -153,71 +150,86 @@
       <div class="about-curtain about-curtain-top"></div>
       <div class="about-curtain about-curtain-left"></div>
       <div class="about-curtain about-curtain-right"></div>
-      <h1 class="about-text">About Me</h1>
-      <div class="about-section">
-        <div class="about-description">
-          <p>Back-End Developer,</p>
-          <p>Co-Founder of <a href="https://ecobux.org">Ecobux.org</a>,</p>
-          <p>Computer Science student at <span class="redacted">Northeastern</span></p>
-        </div>
+      <div class="about-content">
+        <h1 class="about-text">About Me</h1>
+        <div class="about-split">
+          <div class="about-description">
+            <p>Back-End Developer,</p>
+            <p>Co-Founder of <a href="https://ecobux.org">Ecobux.org</a>,</p>
+            <p>Computer Science student at <span class="redacted">Northeastern</span></p>
+          </div>
 
-        <div class="about-image">
-          <img id="about-profile-image" src="/images/profile.png" alt="Profile Image" loading="lazy" />
-          <img id="about-border-image" src="/images/border.png" alt="" aria-hidden="true" role="presentation" loading="lazy" />
+          <div class="about-image">
+            <img
+              id="about-profile-image"
+              src="/images/profile.png"
+              alt="Profile Image"
+              loading="lazy"
+            />
+            <img
+              id="about-border-image"
+              src="/images/border.png"
+              alt=""
+              aria-hidden="true"
+              role="presentation"
+              loading="lazy"
+            />
+          </div>
         </div>
-      </div>
-      <div class="about-form">
-        <div class="about-item">
-          <p class="about-label">Name:</p>
-          <p class="about-value">Lucas Oberwager</p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Email:</p>
-          <p class="about-value">
-            <a href="mailto:hello@lucas.tools">hello@lucas.tools</a>
-          </p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Location:</p>
-          <p class="about-value">Boston, MA</p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Previous Role:</p>
-          <p class="about-value">Software Engineer at <a href="https://tilia.io">Tilia.io</a></p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Education:</p>
-          <p class="about-value">Northeastern University</p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Skills:</p>
-          <p class="about-value">
-            Python, Golang, C, Solidity, JavaScript, Git, Docker, Linux, MacOS
-          </p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Specialization:</p>
-          <p class="about-value">Back-End Development</p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Currently Reading:</p>
-          <p class="about-value" id="cur-book"><a>Lord of the Rings</a></p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Last Known Project:</p>
-          <p class="about-value" id="cur-repo">
-            <a href="https://github.com/Watt3r/wotd">Watt3r/wotd</a>, 4 days ago
-          </p>
-        </div>
-        <div class="about-item">
-          <p class="about-label">Listening to:</p>
-          <p class="about-value" id="cur-song"><a>Calhoun Satan</a></p>
-        </div>
-        <div class="about-item span-two">
-          <p class="about-label">Other Notes:</p>
-          <p class="about-value">
-            Messing around with a homelab, <a href="https://atlas.lucas.tools">atlas.lucas.tools</a>
-          </p>
+        <div class="about-form">
+          <div class="about-item">
+            <p class="about-label">Name:</p>
+            <p class="about-value">Lucas Oberwager</p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Email:</p>
+            <p class="about-value">
+              <a href="mailto:hello@lucas.tools">hello@lucas.tools</a>
+            </p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Location:</p>
+            <p class="about-value">Boston, MA</p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Previous Role:</p>
+            <p class="about-value">Software Engineer at <a href="https://tilia.io">Tilia.io</a></p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Education:</p>
+            <p class="about-value">Northeastern University</p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Skills:</p>
+            <p class="about-value">
+              Python, Golang, C, Solidity, JavaScript, Git, Docker, Linux, MacOS
+            </p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Specialization:</p>
+            <p class="about-value">Back-End Development</p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Currently Reading:</p>
+            <p class="about-value" id="cur-book"><a>Lord of the Rings</a></p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Last Known Project:</p>
+            <p class="about-value" id="cur-repo">
+              <a href="https://github.com/Watt3r/wotd">Watt3r/wotd</a>, 4 days ago
+            </p>
+          </div>
+          <div class="about-item">
+            <p class="about-label">Listening to:</p>
+            <p class="about-value" id="cur-song"><a>Calhoun Satan</a></p>
+          </div>
+          <div class="about-item span-two">
+            <p class="about-label">Other Notes:</p>
+            <p class="about-value">
+              Messing around with a homelab,
+              <a href="https://atlas.lucas.tools">atlas.lucas.tools</a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -329,7 +341,7 @@
     <section class="contact">
       <div class="video-curtain">
         <video id="transition-video" autoplay muted playsinline>
-          <source src="video/1.mp4" type='video/mp4;codecs=hvc1'>
+          <source src="video/1.mp4" type="video/mp4;codecs=hvc1" />
           <source src="video/1.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
@@ -346,7 +358,8 @@
           >All code is open source and available on
           <a href="https://github.com/Watt3r/lucas.tools">Github</a>
           <br />
-          Inspired by <a href="https://www.youtube.com/watch?v=VVW2tZILPOc">The Man from U.N.C.L.E.</a>
+          Inspired by
+          <a href="https://www.youtube.com/watch?v=VVW2tZILPOc">The Man from U.N.C.L.E.</a>
         </small>
 
         <ul class="footer-social">

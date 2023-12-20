@@ -39,7 +39,7 @@ function adjustLandingPath() {
   text.setAttribute("y", startY);
 
   textBox.setAttribute("width", text.getBBox().width * 1.15);
-  textBox.setAttribute("height", REM*parseFloat(maskPath.getAttribute("stroke-width"))+2);
+  textBox.setAttribute("height", REM * parseFloat(maskPath.getAttribute("stroke-width")) + 2);
   textBox.setAttribute("x", width / 2 - textBox.getBBox().width / 2);
   textBox.setAttribute("y", startY - textBox.getBBox().height / 2);
 }
@@ -95,39 +95,39 @@ fontObserver
   });
 window.addEventListener("resize", adjustPath);
 
-  const links = document.querySelectorAll("a");
+const links = document.querySelectorAll("a");
 
-  links.forEach(link => {
-    // Randomize the size of the background
-    const scale = 1 + Math.random() * 0.5;
-    link.style.backgroundSize = `${scale * 100}% ${scale * 100}%`;
+links.forEach((link) => {
+  // Randomize the size of the background
+  const scale = 1 + Math.random() * 0.5;
+  link.style.backgroundSize = `${scale * 100}% ${scale * 100}%`;
 
-    // Randomize the position of the background
-    const posX = Math.random() * 100;
-    const posY = Math.random() * 100;
-    link.style.backgroundPosition = `${posX}% ${posY}%`;
-  });
+  // Randomize the position of the background
+  const posX = Math.random() * 100;
+  const posY = Math.random() * 100;
+  link.style.backgroundPosition = `${posX}% ${posY}%`;
+});
 
-  const video = document.getElementById("transition-video");
+const video = document.getElementById("transition-video");
 
-  const videoObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          video.play();
-        } else {
-          video.pause();
-          video.currentTime = 0;
-        }
-      });
-    },
-    {
-      threshold: 0.5, // Adjust this value based on how much of the video must be visible to trigger
-    },
-  );
+const videoObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        video.play();
+      } else {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  },
+  {
+    threshold: 0.5, // Adjust this value based on how much of the video must be visible to trigger
+  },
+);
 
-  // Start observing the video element
-  videoObserver.observe(video);
+// Start observing the video element
+videoObserver.observe(video);
 
 // Listen for scroll events
 const observer = new IntersectionObserver(
@@ -162,7 +162,11 @@ observer.observe(document.querySelector(".projects"));
  * @return {string} - The string transformed to title case.
  */
 function titleCase(s) {
-  return s.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  return s
+    .toLowerCase()
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 /**
  * Calculates the time elapsed since a given date and returns it in words.
@@ -207,19 +211,25 @@ async function fetchData(url) {
 }
 
 /**
- * Loads the currently reading books from Open Library and displays them. 
+ * Loads the currently reading books from Open Library and displays them.
  */
 async function loadCurrentlyReading() {
   try {
-    const data = await fetchData("https://openlibrary.org/people/lucasobe/books/currently-reading.json");
+    const data = await fetchData(
+      "https://openlibrary.org/people/lucasobe/books/currently-reading.json",
+    );
     document.getElementById("cur-book").innerHTML = data.reading_log_entries
-      .map(e => `<a href="https://openlibrary.org${e.work.key}">${titleCase(e.work.title)}</a> by ${titleCase(e.work.author_names[0])}`)
+      .map(
+        (e) =>
+          `<a href="https://openlibrary.org${e.work.key}">${titleCase(
+            e.work.title,
+          )}</a> by ${titleCase(e.work.author_names[0])}`,
+      )
       .join(" and ");
   } catch (error) {
     console.error("Failed to load currently reading books:", error);
   }
 }
-
 
 /**
  * Loads the last updated repo from GitHub and displays it.
@@ -230,7 +240,8 @@ async function loadLastUpdatedRepo() {
     const repoName = events[0].repo.name;
     const repoDetails = await fetchData(`https://api.github.com/repos/${repoName}`);
     const homepage = repoDetails.homepage ? repoDetails.homepage : `https://github.com/${repoName}`;
-    document.getElementById("cur-repo").innerHTML = `<a href="${homepage}">${repoName}</a>, ${timeSince(new Date(events[0].created_at))} ago`;
+    document.getElementById("cur-repo").innerHTML =
+      `<a href="${homepage}">${repoName}</a>, ${timeSince(new Date(events[0].created_at))} ago`;
   } catch (error) {
     console.error("Failed to load last updated repo:", error);
   }
@@ -241,9 +252,12 @@ async function loadLastUpdatedRepo() {
  */
 async function loadRecentTrack() {
   try {
-    const data = await fetchData("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucasobe&api_key=1de06f62b7d8a0300bec8ed5b05598e8&format=json&limit=1");
+    const data = await fetchData(
+      "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=lucasobe&api_key=1de06f62b7d8a0300bec8ed5b05598e8&format=json&limit=1",
+    );
     const track = data.recenttracks.track[0];
-    document.getElementById("cur-song").innerHTML = `<a href="${track.url}">${track.name}</a> by ${track.artist["#text"]}`;
+    document.getElementById("cur-song").innerHTML =
+      `<a href="${track.url}">${track.name}</a> by ${track.artist["#text"]}`;
   } catch (error) {
     console.error("Failed to load recent track:", error);
   }
@@ -255,4 +269,3 @@ window.onload = async () => {
   loadLastUpdatedRepo();
   loadRecentTrack();
 };
-
