@@ -8,23 +8,23 @@ function titleCase(s) {
   });
 }
 function timeSince(date) {
-    const seconds = Math.floor((new Date() - date) / 1000);
+  const seconds = Math.floor((new Date() - date) / 1000);
 
-    const timeUnits = [
-        { name: 'year', seconds: 31536000 },
-        { name: 'month', seconds: 2592000 },
-        { name: 'day', seconds: 86400 },
-        { name: 'hour', seconds: 3600 },
-        { name: 'minute', seconds: 60 },
-        { name: 'second', seconds: 1 }
-    ];
+  const timeUnits = [
+    { name: "year", seconds: 31536000 },
+    { name: "month", seconds: 2592000 },
+    { name: "day", seconds: 86400 },
+    { name: "hour", seconds: 3600 },
+    { name: "minute", seconds: 60 },
+    { name: "second", seconds: 1 },
+  ];
 
-    for (const unit of timeUnits) {
-        const interval = Math.floor(seconds / unit.seconds);
-        if (interval >= 1) {
-            return `${interval} ${unit.name}${interval > 1 ? 's' : ''}`;
-        }
+  for (const unit of timeUnits) {
+    const interval = Math.floor(seconds / unit.seconds);
+    if (interval >= 1) {
+      return `${interval} ${unit.name}${interval > 1 ? "s" : ""}`;
     }
+  }
 }
 scrollEvent = () => {
   // Check if Lucas Oberwager should be stuck to top
@@ -91,6 +91,9 @@ window.onload = function () {
   xhr2.onload = function () {
     if (xhr2.status >= 200 && xhr2.status < 400) {
       const data = JSON.parse(xhr2.responseText);
+      if (data.length === 0) {
+        return;
+      }
       document.getElementById("curRepo").innerHTML = `<a href="https://github.com/${
         data[0].repo.name
       }">${data[0].repo.name}</a>, ${timeSince(new Date(data[0].created_at))} ago`;
