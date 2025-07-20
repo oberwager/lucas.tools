@@ -176,6 +176,43 @@ footer svg {
 .aboutMe a {
   font-family: "Raleway", serif;
 }
+.aboutMe .resume-highlights {
+  list-style: none;
+  margin: 0 0 1.75em;
+  padding: 0;
+  display: grid;
+  gap: 1.25em;
+}
+
+@media (min-width: 600px) {
+  .aboutMe .resume-highlights {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  }
+}
+
+.aboutMe .resume-highlights li {
+  margin: 0;
+  padding: 0 0 0 1rem;
+  border-left: 3px solid var(--accent-color);
+}
+
+.aboutMe .where {
+  display: block;
+  font-weight: 600;
+}
+
+.aboutMe .when {
+  display: block;
+  font-size: 0.875em;
+  opacity: 0.7;
+}
+
+.aboutMe .what {
+  margin-top: 0.25em;
+  font-size: 0.95em;
+  line-height: 1.35;
+}
+
 img {
   -webkit-user-drag: none;
   -khtml-user-drag: none;
