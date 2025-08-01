@@ -87,7 +87,7 @@ window.onload = function () {
   xhr.send();
   // Update last updated repo
   const xhr2 = new XMLHttpRequest();
-  xhr2.open("GET", "https://api.github.com/users/Watt3r/events?per_page=1", true);
+  xhr2.open("GET", "https://api.github.com/users/oberwager/events?per_page=1", true);
   xhr2.onload = function () {
     if (xhr2.status >= 200 && xhr2.status < 400) {
       const data = JSON.parse(xhr2.responseText);
