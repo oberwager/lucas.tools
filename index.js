@@ -70,49 +70,40 @@ window.onload = function () {
     document.getElementsByClassName("type")[0].classList.remove("type");
   }, 9300);
   // Update currently reading book
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://openlibrary.org/people/lucasobe/books/currently-reading.json", true);
-  xhr.onload = function () {
-    if (xhr.status >= 200 && xhr.status < 400) {
-      const data = JSON.parse(xhr.responseText);
+  fetch("https://openlibrary.org/people/lucasobe/books/currently-reading.json")
+    .then((res) => res.json())
+    .then((data) => {
       document.getElementById("curBook").innerHTML = data.reading_log_entries
-        .map(function (e) {
-          return `<a href="https://openlibrary.org${e.work.key}">${titleCase(
-            e.work.title,
-          )}</a> by ${titleCase(e.work.author_names[0])}`;
-        })
+        .map(
+          (e) =>
+            `<a href="https://openlibrary.org${e.work.key}">${titleCase(e.work.title)}</a> by ${titleCase(e.work.author_names[0])}`,
+        )
         .join(" and ");
-    }
-  };
-  xhr.send();
+    })
+    .catch(console.error);
+
   // Update last updated repo
-  const xhr2 = new XMLHttpRequest();
-  xhr2.open("GET", "https://api.github.com/users/oberwager/events?per_page=1", true);
-  xhr2.onload = function () {
-    if (xhr2.status >= 200 && xhr2.status < 400) {
-      const data = JSON.parse(xhr2.responseText);
-      if (data.length === 0) {
-        return;
+  fetch("https://api.github.com/users/oberwager/events?per_page=1")
+    .then((res) => res.json())
+    .then((data) => {
+      if (!data.length) return;
+      const repoName = data[0].repo.name;
+      document.getElementById("curRepo").innerHTML =
+        `<a href="https://github.com/${repoName}">${repoName}</a>, ${timeSince(new Date(data[0].created_at))} ago`;
+
+      return fetch(`https://api.github.com/repos/${repoName}`);
+    })
+    .then((res) => res?.json())
+    .then((repoData) => {
+      if (repoData?.homepage) {
+        document.getElementById("curRepo").firstChild.setAttribute("href", repoData.homepage);
       }
-      document.getElementById("curRepo").innerHTML = `<a href="https://github.com/${
-        data[0].repo.name
-      }">${data[0].repo.name}</a>, ${timeSince(new Date(data[0].created_at))} ago`;
-      const xhr3 = new XMLHttpRequest();
-      xhr3.open("GET", `https://api.github.com/repos/${data[0].repo.name}`, true);
-      xhr3.onload = function () {
-        const data2 = JSON.parse(xhr3.responseText);
-        if (data2.homepage) {
-          document.getElementById("curRepo").firstChild.setAttribute("href", data2.homepage);
-        }
-      };
-      xhr3.send();
-    }
-  };
-  xhr2.send();
+    })
+    .catch(console.error);
   // Update uptime
   fetch("https://uptime.lucas.tools/api/badge/1/uptime/120")
-    .then(res => res.text())
-    .then(svg => {
+    .then((res) => res.text())
+    .then((svg) => {
       const match = svg.match(/>(\d+\.\d+)%</);
       if (!match) return;
       const uptime = match[1];

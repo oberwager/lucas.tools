@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
@@ -7,12 +7,12 @@
     <title>Lucas Oberwager</title>
     <meta content="width=device-width,initial-scale=1" name="viewport" />
     <meta content="#f7f7f7" name="msapplication-TileColor" />
-    <meta content=/favicon/browserconfig.xml name=msapplication-config>
+    <meta content="/favicon/browserconfig.xml" name="msapplication-config" />
     <meta content="#f7f7f7" name="theme-color" />
     <meta content="Lucas Oberwager" property="og:title" />
     <meta content="website" property="og:type" />
-    <meta content=https://lucas.tools" property=og:url> <meta content=https://lucas.tools/logo.png
-    property=og:image>
+    <meta content="https://lucas.tools" property="og:url" />
+    <meta content="https://lucas.tools/logo.png" property="og:image" />
     <meta
       content="Lucas Oberwager, Developer and Co-Founder of Ecobux.org"
       property="og:description"
@@ -46,7 +46,7 @@
       :root {
         --p: #2b2b2b;
         --s: #f7f7f7;
-        --t: #247BA0;
+        --t: #247ba0;
       }
       html {
         scroll-behavior: smooth;
@@ -120,7 +120,9 @@
             <li class="social">
               <a href="https://www.instagram.com/lucas.oberwager" title="Instagram">
                 <svg width="44" height="44" viewBox="0 0 24 24">
-                  <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                  <path
+                    d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"
+                  />
                   <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
                   <path d="M16.5 7.5l0 .01" />
                 </svg>
@@ -220,21 +222,22 @@
           <div class="worksImage">
             <a href="https://trivio.me">
               <img
-                  sizes="(max-width: 1400px) 100vw, 1400px"
-                  loading="lazy"
-                  srcset="
-                          images/trivio_kipvfo_c_scale,w_200.png 200w,
-                          images/trivio_kipvfo_c_scale,w_472.png 472w,
-                          images/trivio_kipvfo_c_scale,w_668.png 668w,
-                          images/trivio_kipvfo_c_scale,w_821.png 821w,
-                          images/trivio_kipvfo_c_scale,w_958.png 958w,
-                          images/trivio_kipvfo_c_scale,w_1077.png 1077w,
-                          images/trivio_kipvfo_c_scale,w_1170.png 1170w,
-                          images/trivio_kipvfo_c_scale,w_1290.png 1290w,
-                          images/trivio_kipvfo_c_scale,w_1400.png 1400w"
-                  src="images/trivio_kipvfo_c_scale,w_1400.png"
-                  alt="trivio.me Landing page"
-                  >
+                sizes="(max-width: 1400px) 100vw, 1400px"
+                loading="lazy"
+                srcset="
+                  images/trivio_kipvfo_c_scale,w_200.png   200w,
+                  images/trivio_kipvfo_c_scale,w_472.png   472w,
+                  images/trivio_kipvfo_c_scale,w_668.png   668w,
+                  images/trivio_kipvfo_c_scale,w_821.png   821w,
+                  images/trivio_kipvfo_c_scale,w_958.png   958w,
+                  images/trivio_kipvfo_c_scale,w_1077.png 1077w,
+                  images/trivio_kipvfo_c_scale,w_1170.png 1170w,
+                  images/trivio_kipvfo_c_scale,w_1290.png 1290w,
+                  images/trivio_kipvfo_c_scale,w_1400.png 1400w
+                "
+                src="images/trivio_kipvfo_c_scale,w_1400.png"
+                alt="trivio.me Landing page"
+              />
             </a>
           </div>
           <div class="worksContent">
@@ -273,44 +276,55 @@
       </div>
 
       <div class="aboutMe">
+        <div>
+          <h2>About<span class="pop">(</span>me<span class="pop">)</span></h2>
           <div>
-              <h2>About<span class="pop">(</span>me<span class="pop">)</span></h2>
-              <div>
-                  <p class="intro">
-                  I'm <strong>Lucas Oberwager</strong>, a Computer Science student @ Northeastern and current Platform Engineering co-op at <a href="https://www.philips.com">Philips</a>.
-                  </p>
+            <p class="intro">
+              I'm <strong>Lucas Oberwager</strong>, a Computer Science student @ Northeastern and
+              current Platform Engineering co-op at <a href="https://www.philips.com">Philips</a>.
+            </p>
 
-                  <ul class="resume-highlights">
-                      <li>
-                          <span class="where">Qurrent Inc.</span>
-                          <span class="when">Summer 2023 & Summer 2024</span>
-                          <div class="what">
-                              Redesigned Python codebase to be async (90% increase in speed), cut out >25% of the codebase, and automated builds/deploys (GitHub Actions + Cython).
-                          </div>
-                      </li>
-                      <li>
-                          <span class="where">Tilia Inc.</span>
-                          <span class="when">Aug 2022 – Jul 2023</span>
-                          <div class="what">
-                              Led wallet-ledger backend in Go, moved all metrics to Datadog, and built audit-log APIs.
-                          </div>
-                      </li>
-                  </ul>
+            <ul class="resume-highlights">
+              <li>
+                <span class="where">Qurrent Inc.</span>
+                <span class="when">Summer 2023 & Summer 2024</span>
+                <div class="what">
+                  Redesigned Python codebase to be async (90% increase in speed), cut out >25% of
+                  the codebase, and automated builds/deploys (GitHub Actions + Cython).
+                </div>
+              </li>
+              <li>
+                <span class="where">Tilia Inc.</span>
+                <span class="when">Aug 2022 – Jul 2023</span>
+                <div class="what">
+                  Led wallet-ledger backend in Go, moved all metrics to Datadog, and built audit-log
+                  APIs.
+                </div>
+              </li>
+            </ul>
 
-                  <p class="homelab">
-                  I self-host everything I build on my own Kubernetes cluster, with metrics, alerting, and dashboards for every service. My cluster has a <strong><span id="uptime">N/A</span>%</strong> uptime over the past 5 days. You can see more at 
-                  <a href="https://uptime.lucas.tools">uptime.lucas.tools</a>.
-                  <p>Most recently, I pushed code to <span id="curRepo"><a href="https://github.com/oberwager/d2-live">Oberwager/d2-live</a></span>.</p>
-                  </p>
-                  <p>
-                  I am currently reading
-                  <span id="curBook"
-                        >Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific
-                        Problem of His Time</span
-                    >.
-                  </p>
-              </div>
+            <p class="homelab">
+              I self-host everything I build on my own Kubernetes cluster, with metrics, alerting,
+              and dashboards for every service. My cluster has a
+              <strong><span id="uptime">N/A</span>%</strong> uptime over the past 5 days. You can
+              see more at <a href="https://uptime.lucas.tools">uptime.lucas.tools</a>.
+            </p>
+
+            <p>
+              Most recently, I pushed code to
+              <span id="curRepo"
+                ><a href="https://github.com/oberwager/d2-live">Oberwager/d2-live</a></span
+              >.
+            </p>
+            <p>
+              I am currently reading
+              <span id="curBook"
+                >Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific
+                Problem of His Time</span
+              >.
+            </p>
           </div>
+        </div>
       </div>
 
       <div class="subWorks">
@@ -362,14 +376,13 @@
               </svg>
             </div>
             <h4>
-              <a class="subWorksLink" href="https://github.com/oberwager/d2-live">
-                D2-Live
-              </a>
+              <a class="subWorksLink" href="https://github.com/oberwager/d2-live"> D2-Live </a>
             </h4>
             <p>
-                D2-Live is a dynamic tool for creating live, embeddable diagrams using the D2 language.
-                <br />
-                18 Stars on GitHub. 99.9% uptime.
+              D2-Live is a dynamic tool for creating live, embeddable diagrams using the D2
+              language.
+              <br />
+              18 Stars on GitHub. 99.9% uptime.
             </p>
             <ul class="worksTech">
               <li>Golang</li>
@@ -477,14 +490,14 @@
           <ul>
             <li class="footerSocial">
               <a href="https://github.com/oberwager" title="GitHub">
-                <svg viewBox="0 0 24 24" >
+                <svg viewBox="0 0 24 24">
                   <use xlink:href="#github" />
                 </svg>
               </a>
             </li>
             <li class="footerSocial">
               <a href="https://facebook.com/Lucas.Oberwager" title="Facebook">
-                <svg viewBox="0 0 24 24" >
+                <svg viewBox="0 0 24 24">
                   <path
                     d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
                   />
@@ -493,7 +506,7 @@
             </li>
             <li class="footerSocial">
               <a href="https://linkedin.com/in/lucasoberwager" title="LinkedIn">
-                <svg viewBox="0 0 24 24" >
+                <svg viewBox="0 0 24 24">
                   <use xlink:href="#linked" />
                 </svg>
               </a>
@@ -508,7 +521,7 @@
       </div>
     </footer>
     <script src="index.js"></script>
-    <svg style="position: absolute; z-index: -1;height:0px;width:0px">
+    <svg style="position: absolute; z-index: -1; height: 0px; width: 0px">
       <defs>
         <g id="github">
           <path
