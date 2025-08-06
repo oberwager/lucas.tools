@@ -109,4 +109,14 @@ window.onload = function () {
     }
   };
   xhr2.send();
+  // Update uptime
+  fetch("https://uptime.lucas.tools/api/badge/1/uptime/120")
+    .then(res => res.text())
+    .then(svg => {
+      const match = svg.match(/>(\d+\.\d+)%</);
+      if (!match) return;
+      const uptime = match[1];
+      document.getElementById("uptime").innerHTML = uptime;
+    })
+    .catch(console.error);
 };
