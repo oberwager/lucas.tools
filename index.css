@@ -162,7 +162,7 @@ footer svg {
 .aboutMe {
   display: flex;
   align-items: center;
-  height: 70vh;
+  min-height: 70vh;
   width: 70vw;
   max-width: 1312px;
   margin: auto;
