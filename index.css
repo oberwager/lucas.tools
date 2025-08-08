@@ -13,10 +13,6 @@
   width: fit-content;
   margin: 0 auto;
 }
-.carousel-text,
-ul.social {
-  display: block !important;
-}
 @media only screen and (min-width: 448px) {
   li.social {
     padding-left: 1vw !important;
@@ -85,8 +81,16 @@ h1 {
   border-right: 0.15rem solid var(--p);
   animation:
     typing 2s steps(17, jump-none),
-    blink-cursor.95s step-end 10;
+    blink-cursor.95s step-end 10,
+    hide-cursor 0s linear 9.3s 1 forwards;
 }
+@keyframes hide-cursor {
+  to {
+    border-right-color: transparent;
+    border-right-width: 0;
+  }
+}
+
 .sticky {
   position: fixed;
   top: 0;
@@ -126,11 +130,21 @@ h1 {
 
 /* Fade icons in */
 ul.social {
+  min-height: 84px;
   padding: 0;
+  list-style: none;
+
   opacity: 0;
-  animation: fadeIn ease 2s;
-  animation-delay: 2.5s;
-  animation-fill-mode: forwards;
+  visibility: visible;
+  pointer-events: none;
+  animation: fadeIn 2s ease 2.5s forwards;
+  will-change: opacity;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 li.social {
   height: 80.36px;
@@ -350,7 +364,7 @@ footer ::selection {
 }
 .logo {
   text-align: center;
-  font-size: xxx-large;
+  font-size: 3rem;
   margin: 0;
   color: var(--s);
   padding-bottom: 4vh;
@@ -441,14 +455,6 @@ li.footerSocial {
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @media only screen and (min-width: 720px) {
   .subWorksItem {
     width: 33vw;
@@ -490,4 +496,9 @@ li.footerSocial {
   .sticky ~ * {
     padding-top: 80px;
   }
+}
+
+:where(h1) {
+  margin-block: 0.67em;
+  font-size: 2em;
 }

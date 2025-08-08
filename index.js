@@ -56,6 +56,8 @@ scrollEvent = () => {
 
 window.onload = function () {
   // Animate works links in
+  const container = document.getElementById("header").parentElement;
+  sticky = container.offsetTop;
   elements = document.querySelectorAll(".hidden");
   windowHeight = window.innerHeight;
   scrollEvent();
@@ -66,9 +68,6 @@ window.onload = function () {
     sticky = container.offsetTop;
     scrollEvent();
   });
-  typeTimeout = setTimeout(function () {
-    document.getElementsByClassName("type")[0].classList.remove("type");
-  }, 9300);
   // Update currently reading book
   fetch("https://openlibrary.org/people/lucasobe/books/currently-reading.json")
     .then((res) => res.json())
