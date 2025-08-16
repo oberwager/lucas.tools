@@ -100,7 +100,7 @@ window.onload = function () {
     })
     .catch(console.error);
   // Update uptime
-  fetch("https://uptime.lucas.tools/api/badge/1/uptime/120")
+  fetch("https://uptime.lucas.tools/api/badge/1/uptime/8760")
     .then((res) => res.text())
     .then((svg) => {
       const match = svg.match(/>(\d+\.\d+)%</);
