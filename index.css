@@ -24,6 +24,7 @@ a {
   position: relative;
   color: var(--p);
   text-decoration: none;
+  font-family: "Raleway", serif;
 }
 
 a:hover {
@@ -186,9 +187,6 @@ footer svg {
   line-height: 150%;
 }
 .aboutMe > h2 {
-  font-family: "Raleway", serif;
-}
-.aboutMe a {
   font-family: "Raleway", serif;
 }
 .aboutMe .resume-highlights {
@@ -487,9 +485,6 @@ li.footerSocial {
     font-size: 3rem;
     width: 725.5px;
   }
-  .carousel-content {
-    font-size: 2rem;
-  }
   h1 {
     height: 5.3rem;
   }
@@ -501,4 +496,240 @@ li.footerSocial {
 :where(h1) {
   margin-block: 0.67em;
   font-size: 2em;
+}
+
+/* ── Homelab Cluster Section ── */
+.hl-cluster {
+  width: 70vw;
+  max-width: 1312px;
+  margin: 0 auto 4rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.05rem;
+  line-height: 150%;
+}
+.hl-heading {
+  font-family: "Raleway", serif;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+.hl-desc {
+  margin: 0 0 1.5rem;
+}
+.hl-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.hl-stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 7rem;
+  text-align: center;
+}
+.hl-stat-value {
+  font-family: "Cutive Mono", monospace;
+  font-size: 2rem;
+  color: var(--t);
+  line-height: 1.1;
+}
+.hl-stat-label {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+.hl-section-label {
+  font-size: 0.8rem;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.75rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(43,43,43,0.1);
+}
+.hl-services {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.4rem;
+}
+.hl-service {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.hl-service-name {
+  font-family: "Cutive Mono", monospace;
+  font-size: 0.85em;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hl-service-pct {
+  font-family: "Cutive Mono", monospace;
+  font-size: 0.85em;
+  color: var(--t);
+}
+.hl-deploys {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.hl-deploy {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+}
+.hl-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.hl-dot-ok      { background: var(--g); }
+.hl-dot-fail    { background: var(--r); }
+.hl-dot-pending { background: var(--y); }
+.hl-deploy-name {
+  font-family: "Cutive Mono", monospace;
+  font-size: 0.9em;
+}
+.hl-deploy-meta {
+  opacity: 0.6;
+  font-size: 0.85em;
+  margin-left: auto;
+  white-space: nowrap;
+}
+.hl-footer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+.hl-footer a {
+  color: var(--t);
+}
+
+/* ── Pipeline tags ── */
+.hl-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 1.25rem;
+}
+.hl-tag {
+  font-family: "Cutive Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--t);
+  background: rgba(36, 123, 160, 0.08);
+  border: 1px solid rgba(36, 123, 160, 0.28);
+  border-radius: 3px;
+  padding: 0.15rem 0.5rem;
+}
+
+/* ── Gauges (CPU / Memory / Disk) ── */
+.hl-gauges {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.hl-gauge-wrap { display: flex; flex-direction: column; gap: 0.3rem; }
+.hl-gauge-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Cutive Mono", monospace;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+.hl-gauge-val { color: var(--t); }
+.hl-bar {
+  height: 3px;
+  background: rgba(36,123,160,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.hl-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  background: var(--g);
+  transition: width 0.7s ease;
+}
+.hl-bar-fill.warn { background: var(--y); }
+.hl-bar-fill.crit { background: var(--r); }
+
+/* ── Cluster metadata grid ── */
+.hl-cluster-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.hl-kv { display: flex; flex-direction: column; }
+.hl-kv-val {
+  font-family: "Cutive Mono", monospace;
+  font-size: 1rem;
+  color: var(--t);
+  line-height: 1.3;
+}
+.hl-kv-key {
+  font-size: 0.72rem;
+  opacity: 0.55;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.1rem;
+}
+
+/* ── Cosign shield badge ── */
+.hl-shield {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: default;
+  flex-shrink: 0;
+}
+.hl-shield svg {
+  height: 13px;
+  width: 13px;
+  stroke: var(--g);
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  display: block;
+}
+.hl-shield::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--p);
+  color: var(--s);
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  padding: 0.2rem 0.45rem;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+  z-index: 10;
+}
+.hl-shield:hover::after { opacity: 1; }
+
+/* ── Cache timestamp ── */
+.hl-cache {
+  font-family: "Cutive Mono", monospace;
+  font-size: 0.72rem;
+  opacity: 0.4;
+  margin: 0.25rem 0 0;
 }

@@ -54,6 +54,9 @@
         --p: #2b2b2b;
         --s: #f7f7f7;
         --t: #247ba0;
+        --g: #70c1b3;
+        --r: #ff1654;
+        --y: #f0a500;
       }
       @font-face {
         font-family: "Cutive Mono";
@@ -389,7 +392,7 @@
             <p class="homelab">
               I self-host everything I build on my own Kubernetes cluster, with metrics, alerting,
               and dashboards for every service. My cluster has a
-              <strong><span id="uptime">N/A</span>%</strong> uptime over the past month. You can
+              <strong><span id="uptime">N/A</span>%</strong> uptime over the past 24 hours. You can
               see more at <a href="https://uptime.lucas.tools">uptime.lucas.tools</a>.
             </p>
 
@@ -401,14 +404,88 @@
             </p>
             <p>
               I am currently reading
-              <span id="curBook"
-                >Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific
-                Problem of His Time</span
-              >.
+              <span id="curBook"><a href="https://openlibrary.org/works/OL19726995W">Iron Gold</a> by Pierce Brown</span>.
+            </p>
+            <p>
+              I love simple and optimized code. For example, this entire page transferred only
+              <strong><span id="page-size">…</span></strong> to your browser.
             </p>
           </div>
         </div>
       </div>
+
+      <section class="hl-cluster" aria-label="Homelab cluster stats">
+        <h3 class="hl-heading">Homelab<span class="pop">_</span>Cluster</h3>
+        <p class="hl-desc">Bare-metal Talos Linux &amp; GitOps on Kubernetes.</p>
+        <p class="hl-desc">See the full writeup about my cluster <a href="https://github.com/oberwager/homelab">on GitHub</a>.</p>
+
+        <p class="hl-section-label">Resources</p>
+        <div class="hl-gauges">
+          <div class="hl-gauge-wrap">
+            <div class="hl-gauge-label"><span>CPU</span><span id="hl-cpu-pct" class="hl-gauge-val">—</span></div>
+            <div class="hl-bar"><div class="hl-bar-fill" id="hl-cpu-bar"></div></div>
+          </div>
+          <div class="hl-gauge-wrap">
+            <div class="hl-gauge-label"><span>Memory</span><span id="hl-mem-pct" class="hl-gauge-val">—</span></div>
+            <div class="hl-bar"><div class="hl-bar-fill" id="hl-mem-bar"></div></div>
+          </div>
+          <div class="hl-gauge-wrap">
+            <div class="hl-gauge-label"><span>Disk</span><span id="hl-disk-pct" class="hl-gauge-val">—</span></div>
+            <div class="hl-bar"><div class="hl-bar-fill" id="hl-disk-bar"></div></div>
+          </div>
+        </div>
+        <div class="hl-cluster-grid" id="hl-cluster-grid"></div>
+
+        <p class="hl-section-label">Services</p>
+        <div class="hl-stats">
+          <div class="hl-stat">
+            <span class="hl-stat-value" id="hl-uptime-90">N/A</span>
+            <span class="hl-stat-label">90-day uptime</span>
+          </div>
+          <div class="hl-stat">
+            <span class="hl-stat-value" id="hl-uptime-24">N/A</span>
+            <span class="hl-stat-label">24h uptime</span>
+          </div>
+          <div class="hl-stat">
+            <span class="hl-stat-value" id="hl-avg-ping">N/A</span>
+            <span class="hl-stat-label">avg ping</span>
+          </div>
+          <div class="hl-stat">
+            <span class="hl-stat-value" id="hl-service-count">N/A</span>
+            <span class="hl-stat-label">monitored services</span>
+          </div>
+        </div>
+        <ul class="hl-services" id="hl-services"></ul>
+
+        <p class="hl-section-label" style="margin-top:1.5rem">Pipeline</p>
+        <div class="hl-stats">
+          <div class="hl-stat">
+            <span class="hl-stat-value" id="hl-deploy-avg">N/A</span>
+            <span class="hl-stat-label">avg deploy time</span>
+          </div>
+          <div class="hl-stat">
+            <span class="hl-stat-value" id="hl-success-rate">N/A</span>
+            <span class="hl-stat-label">success rate</span>
+          </div>
+          <div class="hl-stat">
+            <span class="hl-stat-value" id="hl-deploys-30d">N/A</span>
+            <span class="hl-stat-label">deploys last 30d</span>
+          </div>
+        </div>
+        <div class="hl-pipeline">
+          <span class="hl-tag">gitleaks</span>
+          <span class="hl-tag">trivy</span>
+          <span class="hl-tag">cosign</span>
+          <span class="hl-tag">tailscale</span>
+        </div>
+        <ul class="hl-deploys" id="hl-deploys"></ul>
+
+        <p class="hl-footer">
+          Full cluster config is
+          <a href="https://github.com/oberwager/homelab">open source on GitHub</a>.
+        </p>
+        <p class="hl-cache" id="hl-cache"></p>
+      </section>
 
       <div class="subWorks">
         <h3 class="subWorksHeader">Projects<span class="pop">+</span></h3>
@@ -636,6 +713,10 @@
           <line x1="8" y1="8" x2="8" y2="8.01"></line>
           <line x1="12" y1="16" x2="12" y2="11"></line>
           <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
+        </g>
+        <g id="shield">
+        <path d="M12 3L4 7v5c0 5.25 3.5 10.14 8 11.5 4.5-1.36 8-6.25 8-11.5V7l-8-4z"/>
+        <polyline points="9 12 11 14 15 10"/>
         </g>
       </defs>
     </svg>
