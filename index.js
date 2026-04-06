@@ -90,13 +90,18 @@ window.onload = function () {
     const nav = performance.getEntriesByType("navigation")[0];
     const resources = performance.getEntriesByType("resource");
     let total = nav ? nav.transferSize : 0;
-    resources.forEach((r) => { total += r.transferSize; });
+    resources.forEach((r) => {
+      total += r.transferSize;
+    });
     const el = document.getElementById("page-size");
     if (total > 0 && el) {
       el.textContent = (total / 1024).toFixed(0) + " KB";
       if (total === last) clearInterval(pageSizeIv);
       last = total;
     }
+    const avgWebPageSize = 3106816; // https://www.speedcurve.com/blog/web-performance-page-bloat/
+    const ratio = Math.floor(avgWebPageSize / total);
+    document.getElementById("size-ratio").textContent = ratio;
   }, 500);
 
   // Homelab cluster stats — single call covers uptime, last deploy, and cluster health
@@ -106,29 +111,22 @@ window.onload = function () {
       const svc = stats.services || {};
       const pipeline = stats.pipeline || {};
       const cluster = stats.cluster || {};
+      const seen = stats.last_worked_on || {};
 
       // Uptime (replaces uptime.lucas.tools badge fetch)
       if (svc.uptime_24hour_pct != null)
-        document.getElementById("uptime").textContent =
-          svc.uptime_24hour_pct.toFixed(2);
+        document.getElementById("uptime").textContent = svc.uptime_24hour_pct.toFixed(2);
 
       // Last deploy repo (replaces GitHub events fetch)
-      if (pipeline.last_deploy_repo && pipeline.last_deploy_at) {
-        const repo = (pipeline.repos || []).find(
-          (r) => r.name === pipeline.last_deploy_repo,
-        );
-        const repoUrl =
-          repo?.url ||
-          `https://github.com/oberwager/${pipeline.last_deploy_repo}`;
+      if (seen.repo && seen.repo_url && seen.pushed_at) {
         document.getElementById("curRepo").innerHTML =
-          `<a href="${repoUrl}">${pipeline.last_deploy_repo}</a>, ` +
-          `${timeSince(new Date(pipeline.last_deploy_at)) || "just now"} ago`;
+          `<a href="${seen.repo_url}">${seen.repo}</a>, ` +
+          `${timeSince(new Date(seen.pushed_at)) || "just now"} ago`;
       }
 
       // Stats row
       if (svc.uptime_90day_pct)
-        document.getElementById("hl-uptime-90").textContent =
-          svc.uptime_90day_pct.toFixed(2) + "%";
+        document.getElementById("hl-uptime-90").textContent = svc.uptime_90day_pct.toFixed(2) + "%";
       if (svc.uptime_24hour_pct != null)
         document.getElementById("hl-uptime-24").textContent =
           svc.uptime_24hour_pct.toFixed(2) + "%";
@@ -140,8 +138,7 @@ window.onload = function () {
             Math.round(pings.reduce((a, b) => a + b, 0) / pings.length) + "ms";
       }
       if (pipeline.avg_deploy_display)
-        document.getElementById("hl-deploy-avg").textContent =
-          pipeline.avg_deploy_display;
+        document.getElementById("hl-deploy-avg").textContent = pipeline.avg_deploy_display;
       if (pipeline.deploy_success_rate_pct != null)
         document.getElementById("hl-success-rate").textContent =
           pipeline.deploy_success_rate_pct.toFixed(0) + "%";
@@ -152,15 +149,16 @@ window.onload = function () {
         const lbl = document.getElementById(pctId);
         if (fill) {
           fill.style.width = Math.min(pct, 100) + "%";
-          fill.className =
-            "hl-bar-fill" + (pct > 90 ? " crit" : pct > 70 ? " warn" : "");
+          fill.className = "hl-bar-fill" + (pct > 90 ? " crit" : pct > 70 ? " warn" : "");
         }
         if (lbl) lbl.textContent = label;
       }
       if (cluster.cpu_usage_pct != null)
         setBar(
-          "hl-cpu-bar", "hl-cpu-pct",
-          cluster.cpu_usage_pct, cluster.cpu_usage_pct.toFixed(1) + "%",
+          "hl-cpu-bar",
+          "hl-cpu-pct",
+          cluster.cpu_usage_pct,
+          cluster.cpu_usage_pct.toFixed(1) + "%",
         );
       if (cluster.mem_total_bytes) {
         const memPct = (cluster.mem_used_bytes / cluster.mem_total_bytes) * 100;
@@ -170,35 +168,44 @@ window.onload = function () {
       }
       if (cluster.disk_used_pct != null)
         setBar(
-          "hl-disk-bar", "hl-disk-pct",
-          cluster.disk_used_pct, cluster.disk_used_pct.toFixed(1) + "%",
+          "hl-disk-bar",
+          "hl-disk-pct",
+          cluster.disk_used_pct,
+          cluster.disk_used_pct.toFixed(1) + "%",
         );
 
       // Pipeline stat boxes
       if (pipeline.deploys_last_30_days != null)
-        document.getElementById("hl-deploys-30d").textContent =
-          pipeline.deploys_last_30_days;
+        document.getElementById("hl-deploys-30d").textContent = pipeline.deploys_last_30_days;
 
       // Cluster metadata grid
       const grid = document.getElementById("hl-cluster-grid");
       [
-        ["pods",             cluster.pods_unhealthy > 0
-                               ? `${cluster.pods_running} (${cluster.pods_unhealthy}!)` : `${cluster.pods_running}`],
-        ["load",             cluster.load1 != null ? cluster.load1 : null],
-        ["namespaces",       cluster.namespace_count],
+        [
+          "pods",
+          cluster.pods_unhealthy > 0
+            ? `${cluster.pods_running} (${cluster.pods_unhealthy}!)`
+            : `${cluster.pods_running}`,
+        ],
+        ["load", cluster.load1 != null ? cluster.load1 : null],
+        ["namespaces", cluster.namespace_count],
         ["pod restarts 24h", cluster.restart_count_24h],
-        ["alerts",           cluster.active_alerts?.total != null ? cluster.active_alerts.total : null],
-        ["certs",            cluster.certs_healthy != null ? `${cluster.certs_healthy} ok` : null],
-        ["cert expiry",      cluster.min_cert_expiry_days != null ? `${cluster.min_cert_expiry_days}d` : null],
-        ["scrape targets",   cluster.targets_up != null
-                               ? `${cluster.targets_up}↑ ${cluster.targets_down}↓` : null],
+        ["alerts", cluster.active_alerts?.total != null ? cluster.active_alerts.total : null],
+        ["certs", cluster.certs_healthy != null ? `${cluster.certs_healthy} ok` : null],
+        [
+          "cert expiry",
+          cluster.min_cert_expiry_days != null ? `${cluster.min_cert_expiry_days}d` : null,
+        ],
+        [
+          "scrape targets",
+          cluster.targets_up != null ? `${cluster.targets_up}↑ ${cluster.targets_down}↓` : null,
+        ],
       ].forEach(([key, val]) => {
         if (val == null) return;
         const div = document.createElement("div");
         div.className = "hl-kv";
         div.innerHTML =
-          `<span class="hl-kv-val">${val}</span>` +
-          `<span class="hl-kv-key">${key}</span>`;
+          `<span class="hl-kv-val">${val}</span>` + `<span class="hl-kv-key">${key}</span>`;
         grid.appendChild(div);
       });
 
@@ -206,15 +213,13 @@ window.onload = function () {
       if (stats.cached_at) {
         const cachedDate = new Date(stats.cached_at);
         const ageSec = Math.floor((Date.now() - cachedDate) / 1000);
-        const ageStr =
-          ageSec < 60
-            ? `${ageSec}s`
-            : `${Math.floor(ageSec / 60)}m ${ageSec % 60}s`;
+        const ageStr = ageSec < 60 ? `${ageSec}s` : `${Math.floor(ageSec / 60)}m ${ageSec % 60}s`;
         const timeStr = cachedDate.toLocaleTimeString([], {
-          hour: "2-digit", minute: "2-digit", second: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
         });
-        document.getElementById("hl-cache").textContent =
-          `cached ${ageStr} ago · at ${timeStr}`;
+        document.getElementById("hl-cache").textContent = `cached ${ageStr} ago · at ${timeStr}`;
       }
 
       // Service health rows

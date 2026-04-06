@@ -500,12 +500,21 @@ li.footerSocial {
 
 /* ── Homelab Cluster Section ── */
 .hl-cluster {
-  width: 70vw;
-  max-width: 1312px;
+  width: clamp(280px, 90vw, 1312px);
   margin: 0 auto 4rem;
   font-family: "Quicksand", sans-serif;
   font-size: 1.05rem;
   line-height: 150%;
+}
+@media (min-width: 768px) {
+  .hl-cluster {
+    width: 80vw;
+  }
+}
+@media (min-width: 1100px) {
+  .hl-cluster {
+    width: 70vw;
+  }
 }
 .hl-heading {
   font-family: "Raleway", serif;
@@ -515,53 +524,96 @@ li.footerSocial {
 .hl-desc {
   margin: 0 0 1.5rem;
 }
+
+/* ── Cards ── */
+.hl-card {
+  background: rgba(36, 123, 160, 0.01);
+  border: 1px solid rgba(36, 123, 160, 0.14);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+@media (max-width: 480px) {
+  .hl-card {
+    padding: 0.9rem 1rem;
+  }
+}
+
+/* ── Section labels (card headers) ── */
+.hl-section-label {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--t);
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(36, 123, 160, 0.2);
+}
+
+/* ── Stats row ── */
 .hl-stats {
   display: flex;
-  gap: 2rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
 }
 .hl-stat {
   display: flex;
   flex-direction: column;
-  min-width: 7rem;
+  flex: 1;
+  min-width: 8rem;
   text-align: center;
+}
+@media (max-width: 480px) {
+  .hl-stat {
+    flex: none;
+    width: calc(50% - 0.65rem);
+  }
 }
 .hl-stat-value {
   font-family: "Cutive Mono", monospace;
   font-size: 2rem;
-  color: var(--t);
+  font-weight: 700;
+  color: var(--p);
   line-height: 1.1;
 }
+.hl-stat-value--positive {
+  color: var(--g);
+}
 .hl-stat-label {
-  font-size: 0.8rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.78rem;
   opacity: 0.65;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 0.2rem;
 }
-.hl-section-label {
-  font-size: 0.8rem;
-  opacity: 0.65;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 0.75rem;
-  padding-top: 0.25rem;
-  border-top: 1px solid rgba(43,43,43,0.1);
-}
+
+/* ── Services grid ── */
 .hl-services {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem;
+  margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.4rem;
+  gap: 0.5rem;
+}
+@media (max-width: 480px) {
+  .hl-services {
+    grid-template-columns: 1fr;
+  }
 }
 .hl-service {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  background: rgba(36, 123, 160, 0.06);
+  border: 1px solid rgba(36, 123, 160, 0.12);
+  border-radius: 5px;
+  padding: 0.4rem 0.65rem;
 }
 .hl-service-name {
   font-family: "Cutive Mono", monospace;
@@ -574,20 +626,46 @@ li.footerSocial {
 .hl-service-pct {
   font-family: "Cutive Mono", monospace;
   font-size: 0.85em;
-  color: var(--t);
+  font-weight: 700;
+  color: var(--g);
 }
+
+/* ── Deploy list ── */
 .hl-deploys {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 0.5rem;
+  gap: 0;
 }
 .hl-deploy {
-  display: flex;
+  display: grid;
+  /* col1=dot  col2=name  col3=optional cosign badge  col4=meta */
+  grid-template-columns: 10px 1fr auto auto;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.95rem;
+  column-gap: 0.6rem;
+  font-size: 0.9rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(36, 123, 160, 0.07);
+}
+.hl-deploy:last-child {
+  border-bottom: none;
+}
+.hl-deploy-meta {
+  grid-column: 4;
+}
+@media (max-width: 480px) {
+  .hl-deploy {
+    grid-template-columns: 10px 1fr auto;
+    grid-template-rows: auto auto;
+    row-gap: 0.1rem;
+    padding: 0.45rem 0;
+  }
+  .hl-deploy-meta {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    text-align: left !important;
+  }
 }
 .hl-dot {
   width: 8px;
@@ -595,19 +673,31 @@ li.footerSocial {
   border-radius: 50%;
   flex-shrink: 0;
 }
-.hl-dot-ok      { background: var(--g); }
-.hl-dot-fail    { background: var(--r); }
-.hl-dot-pending { background: var(--y); }
+.hl-dot-ok {
+  background: var(--g);
+}
+.hl-dot-fail {
+  background: var(--r);
+}
+.hl-dot-pending {
+  background: var(--y);
+}
 .hl-deploy-name {
   font-family: "Cutive Mono", monospace;
-  font-size: 0.9em;
-}
-.hl-deploy-meta {
-  opacity: 0.6;
-  font-size: 0.85em;
-  margin-left: auto;
+  font-size: 0.88em;
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
+.hl-deploy-meta {
+  font-family: "Quicksand", sans-serif;
+  opacity: 0.6;
+  font-size: 0.82em;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* ── Footer ── */
 .hl-footer {
   margin-top: 1.5rem;
   font-size: 0.9rem;
@@ -617,12 +707,12 @@ li.footerSocial {
   color: var(--t);
 }
 
-/* ── Pipeline tags ── */
+/* ── Pipeline security badges ── */
 .hl-pipeline {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.4rem;
   margin-bottom: 1.25rem;
 }
 .hl-tag {
@@ -631,56 +721,82 @@ li.footerSocial {
   color: var(--t);
   background: rgba(36, 123, 160, 0.08);
   border: 1px solid rgba(36, 123, 160, 0.28);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 0.15rem 0.5rem;
+  white-space: nowrap;
 }
 
 /* ── Gauges (CPU / Memory / Disk) ── */
 .hl-gauges {
   display: grid;
   gap: 0.75rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
-.hl-gauge-wrap { display: flex; flex-direction: column; gap: 0.3rem; }
+.hl-gauge-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
 .hl-gauge-label {
   display: flex;
   justify-content: space-between;
-  font-family: "Cutive Mono", monospace;
-  font-size: 0.8rem;
-  opacity: 0.8;
+  align-items: center;
+  font-size: 0.82rem;
 }
-.hl-gauge-val { color: var(--t); }
+.hl-gauge-name {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  opacity: 0.75;
+}
+.hl-gauge-val {
+  font-family: "Cutive Mono", monospace;
+  font-weight: 700;
+  color: var(--p);
+}
 .hl-bar {
-  height: 3px;
-  background: rgba(36,123,160,0.15);
-  border-radius: 2px;
+  height: 7px;
+  background: rgba(36, 123, 160, 0.12);
+  border-radius: 4px;
   overflow: hidden;
 }
 .hl-bar-fill {
   height: 100%;
   width: 0%;
-  border-radius: 2px;
+  border-radius: 4px;
   background: var(--g);
   transition: width 0.7s ease;
 }
-.hl-bar-fill.warn { background: var(--y); }
-.hl-bar-fill.crit { background: var(--r); }
+.hl-bar-fill.warn {
+  background: var(--y);
+}
+.hl-bar-fill.crit {
+  background: var(--r);
+}
 
 /* ── Cluster metadata grid ── */
 .hl-cluster-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: 1rem 1.5rem;
-  margin-bottom: 2rem;
+  gap: 0.75rem 1.25rem;
 }
-.hl-kv { display: flex; flex-direction: column; }
+@media (max-width: 480px) {
+  .hl-cluster-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.hl-kv {
+  display: flex;
+  flex-direction: column;
+}
 .hl-kv-val {
   font-family: "Cutive Mono", monospace;
   font-size: 1rem;
-  color: var(--t);
+  font-weight: 700;
+  color: var(--p);
   line-height: 1.3;
 }
 .hl-kv-key {
+  font-family: "Quicksand", sans-serif;
   font-size: 0.72rem;
   opacity: 0.55;
   text-transform: uppercase;
@@ -688,13 +804,13 @@ li.footerSocial {
   margin-top: 0.1rem;
 }
 
-/* ── Cosign shield badge ── */
+/* ── Shield tooltip (pipeline badges + cosign badge in deploy rows) ── */
 .hl-shield {
   position: relative;
   display: inline-flex;
   align-items: center;
-  cursor: default;
   flex-shrink: 0;
+  cursor: default;
 }
 .hl-shield svg {
   height: 13px;
@@ -704,12 +820,11 @@ li.footerSocial {
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
-  display: block;
 }
 .hl-shield::after {
   content: attr(data-tip);
   position: absolute;
-  bottom: calc(100% + 5px);
+  top: calc(100% + 5px);
   left: 50%;
   transform: translateX(-50%);
   background: var(--p);
@@ -722,9 +837,11 @@ li.footerSocial {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s;
-  z-index: 10;
+  z-index: 100;
 }
-.hl-shield:hover::after { opacity: 1; }
+.hl-shield:hover::after {
+  opacity: 1;
+}
 
 /* ── Cache timestamp ── */
 .hl-cache {

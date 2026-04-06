@@ -42,7 +42,10 @@
       rel="preload"
       href="index.css"
       as="style"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript><link rel="stylesheet" href="index.css" /></noscript>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -404,11 +407,15 @@
             </p>
             <p>
               I am currently reading
-              <span id="curBook"><a href="https://openlibrary.org/works/OL19726995W">Iron Gold</a> by Pierce Brown</span>.
+              <span id="curBook"
+                ><a href="https://openlibrary.org/works/OL19726995W">Iron Gold</a> by Pierce
+                Brown</span
+              >.
             </p>
             <p>
               I love simple and optimized code. For example, this entire page transferred only
-              <strong><span id="page-size">…</span></strong> to your browser.
+              <strong><span id="page-size">…</span></strong> to your browser. Thats
+              <strong><span id="size-ratio">…</span>X</strong> smaller than the average website!
             </p>
           </div>
         </div>
@@ -417,68 +424,86 @@
       <section class="hl-cluster" aria-label="Homelab cluster stats">
         <h3 class="hl-heading">Homelab<span class="pop">_</span>Cluster</h3>
         <p class="hl-desc">Bare-metal Talos Linux &amp; GitOps on Kubernetes.</p>
-        <p class="hl-desc">See the full writeup about my cluster <a href="https://github.com/oberwager/homelab">on GitHub</a>.</p>
+        <p class="hl-desc">
+          See the full writeup about my cluster
+          <a href="https://github.com/oberwager/homelab">on GitHub</a>.
+        </p>
 
-        <p class="hl-section-label">Resources</p>
-        <div class="hl-gauges">
-          <div class="hl-gauge-wrap">
-            <div class="hl-gauge-label"><span>CPU</span><span id="hl-cpu-pct" class="hl-gauge-val">—</span></div>
-            <div class="hl-bar"><div class="hl-bar-fill" id="hl-cpu-bar"></div></div>
+        <div class="hl-card">
+          <p class="hl-section-label">Resources</p>
+          <div class="hl-gauges">
+            <div class="hl-gauge-wrap">
+              <div class="hl-gauge-label">
+                <span class="hl-gauge-name">CPU</span
+                ><span id="hl-cpu-pct" class="hl-gauge-val">—</span>
+              </div>
+              <div class="hl-bar"><div class="hl-bar-fill" id="hl-cpu-bar"></div></div>
+            </div>
+            <div class="hl-gauge-wrap">
+              <div class="hl-gauge-label">
+                <span class="hl-gauge-name">Memory</span
+                ><span id="hl-mem-pct" class="hl-gauge-val">—</span>
+              </div>
+              <div class="hl-bar"><div class="hl-bar-fill" id="hl-mem-bar"></div></div>
+            </div>
+            <div class="hl-gauge-wrap">
+              <div class="hl-gauge-label">
+                <span class="hl-gauge-name">Disk</span
+                ><span id="hl-disk-pct" class="hl-gauge-val">—</span>
+              </div>
+              <div class="hl-bar"><div class="hl-bar-fill" id="hl-disk-bar"></div></div>
+            </div>
           </div>
-          <div class="hl-gauge-wrap">
-            <div class="hl-gauge-label"><span>Memory</span><span id="hl-mem-pct" class="hl-gauge-val">—</span></div>
-            <div class="hl-bar"><div class="hl-bar-fill" id="hl-mem-bar"></div></div>
-          </div>
-          <div class="hl-gauge-wrap">
-            <div class="hl-gauge-label"><span>Disk</span><span id="hl-disk-pct" class="hl-gauge-val">—</span></div>
-            <div class="hl-bar"><div class="hl-bar-fill" id="hl-disk-bar"></div></div>
-          </div>
+          <div class="hl-cluster-grid" id="hl-cluster-grid"></div>
         </div>
-        <div class="hl-cluster-grid" id="hl-cluster-grid"></div>
 
-        <p class="hl-section-label">Services</p>
-        <div class="hl-stats">
-          <div class="hl-stat">
-            <span class="hl-stat-value" id="hl-uptime-90">N/A</span>
-            <span class="hl-stat-label">90-day uptime</span>
+        <div class="hl-card">
+          <p class="hl-section-label">Services</p>
+          <div class="hl-stats">
+            <div class="hl-stat">
+              <span class="hl-stat-value hl-stat-value--positive" id="hl-uptime-90">N/A</span>
+              <span class="hl-stat-label">90-day uptime</span>
+            </div>
+            <div class="hl-stat">
+              <span class="hl-stat-value hl-stat-value--positive" id="hl-uptime-24">N/A</span>
+              <span class="hl-stat-label">24h uptime</span>
+            </div>
+            <div class="hl-stat">
+              <span class="hl-stat-value" id="hl-avg-ping">N/A</span>
+              <span class="hl-stat-label">avg ping</span>
+            </div>
+            <div class="hl-stat">
+              <span class="hl-stat-value" id="hl-service-count">N/A</span>
+              <span class="hl-stat-label">monitored services</span>
+            </div>
           </div>
-          <div class="hl-stat">
-            <span class="hl-stat-value" id="hl-uptime-24">N/A</span>
-            <span class="hl-stat-label">24h uptime</span>
-          </div>
-          <div class="hl-stat">
-            <span class="hl-stat-value" id="hl-avg-ping">N/A</span>
-            <span class="hl-stat-label">avg ping</span>
-          </div>
-          <div class="hl-stat">
-            <span class="hl-stat-value" id="hl-service-count">N/A</span>
-            <span class="hl-stat-label">monitored services</span>
-          </div>
+          <ul class="hl-services" id="hl-services"></ul>
         </div>
-        <ul class="hl-services" id="hl-services"></ul>
 
-        <p class="hl-section-label" style="margin-top:1.5rem">Pipeline</p>
-        <div class="hl-stats">
-          <div class="hl-stat">
-            <span class="hl-stat-value" id="hl-deploy-avg">N/A</span>
-            <span class="hl-stat-label">avg deploy time</span>
+        <div class="hl-card">
+          <p class="hl-section-label">Pipeline</p>
+          <div class="hl-stats">
+            <div class="hl-stat">
+              <span class="hl-stat-value" id="hl-deploy-avg">N/A</span>
+              <span class="hl-stat-label">avg deploy time</span>
+            </div>
+            <div class="hl-stat">
+              <span class="hl-stat-value hl-stat-value--positive" id="hl-success-rate">N/A</span>
+              <span class="hl-stat-label">success rate</span>
+            </div>
+            <div class="hl-stat">
+              <span class="hl-stat-value" id="hl-deploys-30d">N/A</span>
+              <span class="hl-stat-label">deploys last 30d</span>
+            </div>
           </div>
-          <div class="hl-stat">
-            <span class="hl-stat-value" id="hl-success-rate">N/A</span>
-            <span class="hl-stat-label">success rate</span>
+          <div class="hl-pipeline">
+            <span class="hl-tag hl-shield" data-tip="Secret scanning">gitleaks</span>
+            <span class="hl-tag hl-shield" data-tip="Container vulnerability scanning">trivy</span>
+            <span class="hl-tag hl-shield" data-tip="Image signature verification">cosign</span>
+            <span class="hl-tag hl-shield" data-tip="Mesh networking">tailscale</span>
           </div>
-          <div class="hl-stat">
-            <span class="hl-stat-value" id="hl-deploys-30d">N/A</span>
-            <span class="hl-stat-label">deploys last 30d</span>
-          </div>
+          <ul class="hl-deploys" id="hl-deploys"></ul>
         </div>
-        <div class="hl-pipeline">
-          <span class="hl-tag">gitleaks</span>
-          <span class="hl-tag">trivy</span>
-          <span class="hl-tag">cosign</span>
-          <span class="hl-tag">tailscale</span>
-        </div>
-        <ul class="hl-deploys" id="hl-deploys"></ul>
 
         <p class="hl-footer">
           Full cluster config is
@@ -715,8 +740,8 @@
           <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
         </g>
         <g id="shield">
-        <path d="M12 3L4 7v5c0 5.25 3.5 10.14 8 11.5 4.5-1.36 8-6.25 8-11.5V7l-8-4z"/>
-        <polyline points="9 12 11 14 15 10"/>
+          <path d="M12 3L4 7v5c0 5.25 3.5 10.14 8 11.5 4.5-1.36 8-6.25 8-11.5V7l-8-4z" />
+          <polyline points="9 12 11 14 15 10" />
         </g>
       </defs>
     </svg>
